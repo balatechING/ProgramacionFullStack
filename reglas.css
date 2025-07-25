@@ -1,0 +1,44 @@
+body {
+    background-image: url(Dinosaurio.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin-top: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    margin-top: 0px;
+    margin-left: 500px;
+    color: white;
+    font-size: 20px;
+}
+
+.Botones {
+    margin-top: 10px;
+}
+
+.Botones button {
+    border-radius: 10px;
+    background-color: burlywood;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 200px;
+}
+
+.botones2 p1 a {
+    background-color: orange;
+    border-radius: 20px;
+    border: 3px solid black;
+    padding: 20px 40px;
+    display: inline-block;
+    font-family: "Bangers", system-ui;
+    color: #936018;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 2px 2px 0 #1a1105;
+    transition: background 0.3s;
+}

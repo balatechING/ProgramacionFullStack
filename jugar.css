@@ -1,0 +1,58 @@
+body {
+    background-image: url(imagen.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+.img {
+    display: block;
+    margin: 100px auto 0 auto;
+    max-width: 60vw;
+    height: auto;
+    z-index: 0;
+}
+
+.img2 {
+    position: absolute;
+    left: 74%;
+    transform: translateY(-90%);
+    width: 95px; 
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+.botondado {
+    text-align: right;
+    margin-right: 150px;
+    
+}
+
+.botondado a {
+    display: inline-block;
+    padding: 15px 30px;
+    background: skyblue;
+    color: black;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    transition: background 0.3s;
+}
+
+.botondado a:hover {
+    background: deepskyblue;
+}
+
+@media screen and (max-width: 600px) {
+    .img {
+        margin-top: 30px;
+        max-width: 60vw;
+    }
+    .botondado a {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+}

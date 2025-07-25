@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reglas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=WDXL+Lubrifont+SC&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="botones2">
+        <p1><a href="index.html">Volver</a></p1>
+    </div>
+    <section class="container">
+        <section class="regla" id="regla1">
+            <p>Reglas</p>
+            <p>Todos los jugadores recibirán un tablero</p>
+            <p>Se retiran algunos dinosaurios de la partida según el número de jugadores (por ejemplo, 2 de cada especie si son 4 o 2 jugadores, y 4 de cada especie si son 3). Se colocan los dinosaurios restantes en una bolsa.</p>
+        </section>
+        <article class="regla" id="regla2" style="display:none;">
+            <p>Cada recinto tiene sus propias reglas de colocación y puntúa de forma diferente al final del juego:</p>
+            <p>El Bosque de la Semejanza:<br> Este recinto sólo puede albergar dinosaurios de la misma especie. Debe ocuparse siempre de izquierda a derecha sin dejar espacios intermedios. Al final de la partida, ganarás los puntos de victoria indicados
+                según el número total de dinosaurios colocados en el recinto.</p>
+        </article>
+        <article class="regla" id="regla3" style="display:none;">
+            <p>El Prado de la Diferencia:<br> Este recinto sólo puede albergar dinosaurios de especies distintas. Debe ocuparse siempre de izquierda a derecha sin dejar espacio intermedios. Al final de la partida, ganarás los puntos de victoria indicados
+                según el número de dinosaurios colocados en el recinto.</p>
+        </article>
+        <article class="regla" id="regla4" style="display:none;">
+            <p>La Pradera del Amor:<br> Este recinto puede albergar dinosaurios de todas las especies. Al final de la partida, conseguirás 5 puntos de victoria por cada pareja de dinosaurios de la misma especie que se encuentre en el recinto. Está permitido
+                tener más de una pareja de la misma especie. Los dinosaurios que no formen pareja no suman puntos.</p>
+        </article>
+        <div class="regla" id="regla5" style="display:none;">
+            <p>El Trío Frondoso:<br> Este recinto puede albergar hasta 3 dinosaurios sin importar su especie. Al final de la partida, ganarás 7 puntos de victoria si hay exactamente 3 dinosaurios dentro del recinto. Si al final de la partida el recinto no
+                alberga exactamente 3 dinosaurios, no te llevas ningún punto.</p>
+        </div>
+        <div class="regla" id="regla6" style="display:none;">
+            <p>El Rey de la Selva:<br> Este recinto puede albergar solo 1 dinosaurio. Al final de la partida ganarás 7 puntos de victoria si ningún jugador o jugadora tiene en su parque más dinosaurios que tú de esta especie. En caso de empate recibes igualmente
+                los 7 puntos.</p>
+        </div>
+        <section class="regla" id="regla7" style="display:none;">
+            <p>La Isla Solitaria:<br> Este recinto puede albergar solo 1 dinosaurio. Al final de la partida otorga 7 puntos de victoria si es el único de su especie en tu parque. En caso contrario otorga 0 puntos.</p>
+        </section>
+        <nav class="Botones">
+            <button onclick="anteriorRegla()">Anterior</button>
+            <button onclick="siguienteRegla()">Siguiente</button>
+        </nav>
+        </div>
+        <script>
+            let reglaActual = 1;
+            const totalReglas = 7;
+
+            function mostrarRegla(n) {
+                for (let i = 1; i <= totalReglas; i++) {
+                    document.getElementById('regla' + i).style.display = (i === n) ? '' : 'none';
+                }
+            }
+
+            function siguienteRegla() {
+                if (reglaActual < totalReglas) {
+                    reglaActual++;
+                    mostrarRegla(reglaActual);
+                }
+            }
+
+            function anteriorRegla() {
+                if (reglaActual > 1) {
+                    reglaActual--;
+                    mostrarRegla(reglaActual);
+                }
+            }
+        </script>
+</body>
+
+</html>
