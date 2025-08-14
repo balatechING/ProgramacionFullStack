@@ -1,0 +1,74 @@
+body {
+    background-image: url(/Recursos/Imagenes/FondoJuego.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+.img {
+    display: block;
+    margin: 1px auto 0 auto;
+    max-width: 60vw;
+    height: auto;
+    z-index: 0;
+}
+
+.img2 {
+    position: absolute;
+    left: 77%;
+    transform: translateY(-130%);
+    width: 95px; 
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+.botondado {
+    text-align: right;
+    margin-right: 100px;
+    
+}
+
+.botondado a {
+    display: inline-block;
+    padding: 15px 30px;
+    background: skyblue;
+    color: black;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    transition: background 0.3s;
+    margin-top: -100px;
+}
+
+.botondado a:hover {
+    background: deepskyblue;
+}
+
+.botones2 p1 a {
+    background-color: orange;
+    border-radius: 20px;
+    border: 3px solid black;
+    padding: 20px 40px;
+    display: inline-block;
+    font-family: "Bangers", system-ui;
+    color: #936018;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 2px 2px 0 #1a1105;
+    transition: background 0.3s;
+}
+
+@media screen and (max-width: 600px) {
+    .img {
+        margin-top: 30px;
+        max-width: 60vw;
+    }
+    .botondado a {
+        padding: 10px 15px;
+        font-size: 1em;
+    }
+}

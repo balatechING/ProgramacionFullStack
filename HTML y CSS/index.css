@@ -1,0 +1,160 @@
+body {
+    background-image: url(/Recursos/Imagenes/FondoInicio.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.menu{
+    list-style: none;
+    display: inline-block;
+    column-gap: 2rem;
+    margin-left: 100px;
+}
+
+.usuario{
+    display: flex;
+    list-style: none;
+    column-gap: 1rem;
+    flex-direction: row;
+}
+
+.titulo{
+    margin-inline: auto;
+    margin-left: 420px;
+    padding: 18px 40px; 
+    
+    
+}
+
+.botones {
+    background-color: orange;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 20px 40px;
+    display: inline-block;
+    font-family: "Bangers", system-ui;
+    color: #936018;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 2px 2px 0 #1a1105;
+    transition: background 0.3s;
+
+}
+
+.botones p2 a {
+    background-color: orange;
+    border-radius: 20px;
+    border: 3px solid black;
+    padding: 20px 50px;
+    display: inline-block;
+    font-family: "Bangers", system-ui;
+    color: #936018;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 2px 2px 02 #1a1105;
+    transition: background 0.3s;
+    margin-left: 17650px;
+}
+
+.menuoccsione {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+.menuoccsione > .menu {
+    margin-left: 0;
+}
+
+.menuoccsione p1 a,
+.menuoccsione p2 a {
+    background-color: orange;
+    border-radius: 20px;
+    border: 3px solid black;
+    padding: 20px 40px;
+    display: inline-block;
+    font-family: "Bangers", system-ui;
+    color: #936018;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 2px 2px 0 #1a1105;
+    transition: background 0.3s;
+}
+
+.menuoccsione p1:hover,
+.menuoccsione p2:hover {
+    color: #936018;
+}
+
+.menuoccsione a:hover {
+    background: #734b13;
+    color: #c68427;
+}
+
+.container h1 {
+    background-color: orange;
+    border-radius: 20px;
+    border: 3px solid black;
+    padding: 20px 40px;
+    display: inline-block;
+    font-family: "Bangers", system-ui;
+    color: #936018;
+    text-shadow: 2px 2px 0 #1a1105;
+
+}
+
+.img {
+    margin-left: 30px;
+}
+
+@media screen and (max-width: 600px) {
+    .container h1 {
+        width: 98%;
+        padding: 10px;
+    }
+    .menuoccsione p1,
+    p2 {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    .boton1 {
+        padding: 12px;
+        font-size: 1em;
+    }
+}
+
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: orange;
+    font-size: 1.5em;
+    color: #936018;
+    font-family: "Bangers", system-ui;
+    text-shadow: 2px 2px 0 #1a1105;
+    background-color: orange;
+    border: 3px solid black;
+    padding: 10px 20px;
+}
+
+html, body {
+    height: 100%;
+    overflow-y: hidden;
+}
