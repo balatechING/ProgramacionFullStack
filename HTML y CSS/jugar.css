@@ -10,15 +10,17 @@ body {
 .img {
     display: block;
     margin: 1px auto 0 auto;
-    max-width: 60vw;
+    max-width: 35vw;
     height: auto;
+    border: 2px solid black;
     z-index: 0;
+    transform: translateX(-40%);
 }
 
 .img2 {
     position: absolute;
-    left: 77%;
-    transform: translateY(-130%);
+    left: 60%;
+    transform: translateY(-200%);
     width: 95px; 
     pointer-events: none;
     z-index: 1;
@@ -27,15 +29,18 @@ body {
 
 .botondado {
     text-align: right;
-    margin-right: 100px;
+    margin-right: 340px;
+    transform: translateY(-100%);
     
 }
 
 .botondado a {
     display: inline-block;
     padding: 15px 30px;
-    background: skyblue;
-    color: black;
+    background-color: orange;
+    font-family: "Bangers", system-ui;
+    color: #b3741e;
+    text-shadow: 1px 1px 0 #1a1105;
     text-decoration: none;
     border-radius: 8px;
     font-size: 1.2em;
@@ -44,22 +49,31 @@ body {
 }
 
 .botondado a:hover {
-    background: deepskyblue;
+    background: #734b13;
+    color: #c68427;
 }
 
 .botones2 p1 a {
     background-color: orange;
     border-radius: 20px;
-    border: 3px solid black;
+    border: 2px solid black;
     padding: 20px 40px;
     display: inline-block;
     font-family: "Bangers", system-ui;
-    color: #936018;
+    color: #b3741e;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
-    text-shadow: 2px 2px 0 #1a1105;
+    text-shadow: 1px 1px 0 #1a1105;
     transition: background 0.3s;
+    margin-left: 5px;
+    margin-top: 5px;
+    letter-spacing: 2px;
+}
+
+.botones2 a:hover{
+    background: #734b13;
+    color: #c68427;
 }
 
 @media screen and (max-width: 600px) {

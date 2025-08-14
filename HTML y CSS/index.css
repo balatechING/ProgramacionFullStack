@@ -16,13 +16,16 @@ body {
 
 .menu{
     list-style: none;
-    display: inline-block;
-    column-gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-left: 100px;
     font-size: large;
     line-height: 40px;  
     text-align: center;  
-    margin-bottom: 250px;
+    margin-bottom: 225px;
+    letter-spacing: 3px;
+    
 }
 
 .usuario{
@@ -30,8 +33,9 @@ body {
     list-style: none;
     column-gap: 1rem;
     flex-direction: row;
-    padding: 5px 10px;
+    padding: 5px 1px;
     font-size: small;
+    letter-spacing: 3px;
 }
 
 .titulo{
@@ -42,17 +46,17 @@ body {
 }
 
 .botones {
-    background-color: orange;
+    background-color: orange;                                                                                           
     border-radius: 20px;
     border: 2px solid black;
     padding: 20px 40px;
     display: inline-block;
     font-family: "Bangers", system-ui;
-    color: #936018;
+    color: #b3741e;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
-    text-shadow: 2px 2px 0 #1a1105;
+    text-shadow: 1px 1px 0 #1a1105;
     transition: background 0.3s;
 
 }
@@ -100,6 +104,11 @@ body {
     font-weight: bold;
     text-shadow: 2px 2px 0 #1a1105;
     transition: background 0.3s;
+}
+
+.container a:hover{
+   background: #734b13;
+    color: #c68427;
 }
 
 .menuoccsione p1:hover,
@@ -150,16 +159,21 @@ footer {
     bottom: 0;
     width: 100%;
     background-color: orange;
-    font-size: 1.5em;
+    font-size: 1.25em;
     color: #936018;
     font-family: "Bangers", system-ui;
-    text-shadow: 2px 2px 0 #1a1105;
+    text-shadow: 1px 1px 0 #1a1105;
     background-color: orange;
-    border: 3px solid black;
+    border: 2px solid black;
     padding: 10px 20px;
+    letter-spacing: 1.5px;
 }
 
 html, body {
     height: 100%;
     overflow-y: hidden;
+}
+
+head{
+    font-family: 'Bowlby One SC', sans-serif;
 }
