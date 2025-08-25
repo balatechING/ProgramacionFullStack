@@ -4,63 +4,79 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    margin-top: 0;
+    margin: 0;
     padding: 0;
 }
 
 .pizarron-container {
-    width: 580px;
-    height: 350px;
+    width: 90%;
+    max-width: 580px;
+    height: 350px; 
     background-image: url(/Recursos/Imagenes/Pizarrón.png);
     background-size: cover;
     background-position: center;
-    position: absolute;
-    top: 40%; 
-    left: 53%; 
-    transform: translateY(-50%); 
-    margin: 20px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 85px;
+    background-repeat: no-repeat;
+    position: relative; 
+    margin: 40px auto;
+    padding: 20px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
-
 
 .pizarron-texto {
     color: white;
-    font-size: 12px;
     font-family: "Rock Salt", cursive;
     font-weight: 600;
-    font-style: normal;
     text-align: center;
     width: 100%;
-    margin-top: -90px;
+    height: 100%;
+    padding-bottom: 60px; 
+    overflow-wrap: break-word;
+}
+
+@media (min-width: 769px) {
+    .pizarron-texto {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .pizarron-texto {
+        font-size: 0.75rem;
+    }
 }
 
 .Botones {
     position: absolute;
-    bottom: -90px; 
+    bottom: 20px; 
+    display: flex;
+    gap: 15px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    gap: 10px; 
 }
 
 .Botones button {
     border-radius: 10px;
     background-color: burlywood;
     cursor: pointer;
-    font-size: 15px;
-    margin-bottom: 180px;
+    font-size: 14px;
+    padding: 10px 20px;
+    min-width: 100px;
 }
 
-.botones2 p1 a {
+.botones2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.botones2 a {
     background-color: orange;
     border-radius: 20px;
     border: 3px solid black;
     padding: 20px 40px;
-    display: inline-block;
     font-family: "Bangers", system-ui;
     color: #b3741e;
     text-decoration: none;
@@ -68,11 +84,10 @@ body {
     font-weight: bold;
     text-shadow: 1px 1px 0 #1a1105;
     transition: background 0.3s;
-    margin-top: 5px;
     letter-spacing: 3px;
 }
 
-.botones2 a:hover{
+.botones2 a:hover {
     background: #734b13;
     color: #c68427;
 }

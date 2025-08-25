@@ -6,58 +6,14 @@ body {
     background-attachment: fixed;
     margin: 0;
     padding: 0;
-}
-.img {
-    display: block;
-    margin: 1px auto 0 auto;
-    max-width: 35vw;
-    height: auto;
-    border: 2px solid black;
-    z-index: 0;
-    transform: translateX(-40%);
-}
-
-.img2 {
-    position: absolute;
-    left: 60%;
-    transform: translateY(-200%);
-    width: 95px; 
-    pointer-events: none;
-    z-index: 1;
-}
-
-
-.botondado {
-    text-align: right;
-    margin-right: 340px;
-    transform: translateY(-100%);
-    
-}
-
-.botondado a {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: orange;
     font-family: "Bangers", system-ui;
-    color: #b3741e;
-    text-shadow: 1px 1px 0 #1a1105;
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 1.2em;
-    transition: background 0.3s;
-    margin-top: -100px;
 }
 
-.botondado a:hover {
-    background: #734b13;
-    color: #c68427;
-}
-
-.botones2 p1 a {
+.botones2 a {
     background-color: orange;
     border-radius: 20px;
     border: 2px solid black;
-    padding: 20px 40px;
+    padding: 15px 30px;
     display: inline-block;
     font-family: "Bangers", system-ui;
     color: #b3741e;
@@ -66,23 +22,76 @@ body {
     font-weight: bold;
     text-shadow: 1px 1px 0 #1a1105;
     transition: background 0.3s;
-    margin-left: 5px;
-    margin-top: 5px;
+    margin: 10px;
     letter-spacing: 2px;
 }
 
-.botones2 a:hover{
+.botones2 a:hover {
     background: #734b13;
     color: #c68427;
 }
 
-@media screen and (max-width: 600px) {
+.img {
+    display: block;
+    margin: 20px auto;
+    max-width: 40vw;
+    height: auto;
+    border: 2px solid black;
+    z-index: 0;
+}
+
+.img2 {
+    display: block;
+    margin: 20px auto;
+    width: 120px;
+    height: auto;
+    z-index: 1;
+}
+
+.botondado {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.botondado a {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: orange;
+    color: #b3741e;
+    text-shadow: 1px 1px 0 #1a1105;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    transition: background 0.3s;
+}
+
+.botondado a:hover {
+    background: #734b13;
+    color: #c68427;
+}
+
+@media screen and (max-width: 768px) {
     .img {
-        margin-top: 30px;
-        max-width: 60vw;
+        max-width: 70vw;
+    }
+    .img2 {
+        width: 90px;
+    }
+    .botondado a {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .img {
+        max-width: 90vw;
+    }
+    .img2 {
+        width: 70px;
     }
     .botondado a {
         padding: 10px 15px;
-        font-size: 1em;
+        font-size: 0.9em;
     }
 }

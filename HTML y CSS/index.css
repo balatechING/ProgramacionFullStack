@@ -1,179 +1,118 @@
-body {
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Bangers", system-ui;
     background-image: url(/Recursos/Imagenes/FondoInicio.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-}
-
-.menu{
-    list-style: none;
+body {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-left: 100px;
-    font-size: large;
-    line-height: 40px;  
-    text-align: center;  
-    margin-bottom: 225px;
-    letter-spacing: 3px;
-    
 }
 
-.usuario{
+.titulo {
+    background-color: orange;
+    padding: 10px 20px;
+    border: 2px solid black;
+    color: #fff;
+    text-shadow: 1px 1px 0 #1a1105;
+    border-radius: 10px;
+    margin: 0 auto; 
+    display: inline-block; 
+}
+
+.header-botones {
     display: flex;
-    list-style: none;
-    column-gap: 1rem;
-    flex-direction: row;
-    padding: 5px 1px;
-    font-size: small;
-    letter-spacing: 3px;
-}
-
-.titulo{
-    margin-inline: 200px;
-    margin-left: 420px;
-    padding: 40px 80px; 
-    margin-top: 5px;
+    margin-left: 1px;
 }
 
 .botones {
-    background-color: orange;                                                                                           
+    background-color: orange;
     border-radius: 20px;
     border: 2px solid black;
     padding: 20px 40px;
     display: inline-block;
-    font-family: "Bangers", system-ui;
     color: #b3741e;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
     text-shadow: 1px 1px 0 #1a1105;
-    transition: background 0.3s;
-
+    transition: background 0.3s, color 0.3s;
 }
 
-.botones p2 a {
-    background-color: orange;
-    border-radius: 20px;
-    border: 3px solid black;
-    padding: 20px 50px;
-    display: inline-block;
-    font-family: "Bangers", system-ui;
-    color: #936018;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-shadow: 2px 2px 02 #1a1105;
-    transition: background 0.3s;
-    margin-left: 17650px;
-}
-
-.menuoccsione {
-    display: flex;
-    width: 100%;
-    min-height: 100vh;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-}
-
-.menuoccsione > .menu {
-    margin-left: 0;
-}
-
-.menuoccsione p1 a,
-.menuoccsione p2 a {
-    background-color: orange;
-    border-radius: 20px;
-    border: 3px solid black;
-    padding: 20px 40px;
-    display: inline-block;
-    font-family: "Bangers", system-ui;
-    color: #936018;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-shadow: 2px 2px 0 #1a1105;
-    transition: background 0.3s;
-}
-
-.container a:hover{
-   background: #734b13;
-    color: #c68427;
-}
-
-.menuoccsione p1:hover,
-.menuoccsione p2:hover {
-    color: #936018;
-}
-
-.menuoccsione a:hover {
+.botones:hover {
     background: #734b13;
-    color: #c68427;
+    color: #fff;
 }
 
-.container h1 {
+.menu-boton {
     background-color: orange;
     border-radius: 20px;
-    border: 3px solid black;
+    border: 2px solid black;
     padding: 20px 40px;
     display: inline-block;
-    font-family: "Bangers", system-ui;
-    color: #936018;
-    text-shadow: 2px 2px 0 #1a1105;
-
+    color: #b3741e;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #1a1105;
+    transition: background 0.3s, color 0.3s;
 }
 
-.img {
-    margin-left: 30px;
-}
-
-@media screen and (max-width: 600px) {
-    .container h1 {
-        width: 98%;
-        padding: 10px;
-    }
-    .menuoccsione p1,
-    p2 {
-        padding: 10px;
-        font-size: 0.9em;
-    }
-    .boton1 {
-        padding: 12px;
-        font-size: 1em;
-    }
+.menu-boton:hover {
+    background: #734b13;
+    color: #fff;
 }
 
 footer {
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     background-color: orange;
     font-size: 1.25em;
     color: #936018;
-    font-family: "Bangers", system-ui;
     text-shadow: 1px 1px 0 #1a1105;
-    background-color: orange;
     border: 2px solid black;
     padding: 10px 20px;
     letter-spacing: 1.5px;
+    margin-top: auto;
 }
 
-html, body {
-    height: 100%;
-    overflow-y: hidden;
+@media (max-width: 576px) {
+    .titulo {
+        font-size: 1.8em;
+    }
+    .header-botones {
+        flex-direction: column;
+        align-items: center;
+    }
+    .botones {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .menu-boton {
+        padding: 15px 30px;
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
 }
 
-head{
-    font-family: 'Bowlby One SC', sans-serif;
+@media (min-width: 577px) and (max-width: 992px) {
+    .botones {
+        padding: 18px 30px;
+        font-size: 1em;
+    }
+    .titulo {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-botones {
+        position: static !important; 
+        justify-content: center;     
+        margin-top: 10px;           
+    }
 }
