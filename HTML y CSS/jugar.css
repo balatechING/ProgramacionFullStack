@@ -33,24 +33,28 @@ body {
 
 .img {
     display: block;
-    margin: 20px auto;
+    margin: 10px auto;
     max-width: 40vw;
     height: auto;
     border: 2px solid black;
     z-index: 0;
+    margin-left: 100px;
 }
 
 .img2 {
     display: block;
-    margin: 20px auto;
     width: 120px;
     height: auto;
-    z-index: 1;
+    position: absolute;
+    margin-left: 775px;
+    margin-top: -180px;
 }
 
 .botondado {
     text-align: center;
-    margin-top: 20px;
+    margin-top: -73px;
+    margin-left: 300px;
+    position: relative;
 }
 
 .botondado a {
@@ -70,10 +74,16 @@ body {
     color: #c68427;
 }
 
+.boton_tablero {
+    position: absolute;
+    top: 10px;
+    left: 90%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
 @media screen and (max-width: 768px) {
-    .img {
-        max-width: 70vw;
-    }
+
     .img2 {
         width: 90px;
     }
@@ -81,6 +91,22 @@ body {
         padding: 12px 20px;
         font-size: 1em;
     }
+
+    .boton_tablero {
+        top: 1px;
+        left: auto;
+        right: -0.1px;
+        transform: none;
+    }
+
+    img {
+    position: relative;
+    left: -50px;         
+    top: 10px;
+    width: 70%;       
+    max-width: 200px;
+}
+
 }
 
 @media screen and (max-width: 480px) {

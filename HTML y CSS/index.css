@@ -111,8 +111,8 @@ footer {
 
 @media (max-width: 768px) {
     .header-botones {
-        position: static !important; 
+        position: static; 
         justify-content: center;     
-        margin-top: 10px;           
+        margin-top: 85px;           
     }
 }
