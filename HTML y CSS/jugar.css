@@ -52,8 +52,8 @@ body {
 
 .botondado {
     text-align: center;
-    margin-top: -73px;
-    margin-left: 300px;
+    margin-top: 30px;
+    margin-left: 140px;
     position: relative;
 }
 
@@ -82,13 +82,40 @@ body {
     z-index: 2;
 }
 
-@media screen and (max-width: 768px) {
+.tablero {
+    position: relative;
+    display: inline-block;
+}
+
+.tablero img {
+    width: 600px;
+
+}
+
+.Zona {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 2px dashed rgba(0,0,0,0.3);
+    left: 130px;
+    top: 100px;
+}
+
+#Zona1 {top: 280px; left: 130px;}
+#Zona2 {top: 470px; left: 130px;}
+#Zona3 {top: 100px; left: 480px;}
+#Zona4 {top: 470px; left: 480px;}
+#Zona5 {top: 280px; left: 480px;}
+
+
+@media screen and (max-width: 576px) {
 
     .img2 {
-        width: 90px;
+        width: 80vh;
     }
     .botondado a {
         padding: 12px 20px;
+        margin-right: 1000px;
         font-size: 1em;
     }
 
@@ -101,20 +128,20 @@ body {
 
     img {
     position: relative;
-    left: -50px;         
+    left: -80px;         
     top: 10px;
-    width: 70%;       
+    width: 50vh;       
     max-width: 200px;
 }
 
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 577px) and (max-width: 992px) {
     .img {
-        max-width: 90vw;
+        max-width: 90vh;
     }
     .img2 {
-        width: 70px;
+        width: 90vh;
     }
     .botondado a {
         padding: 10px 15px;
