@@ -9,6 +9,13 @@ body {
     font-family: "Bangers", system-ui;
 }
 
+@font-face {
+    font-family: 'JurassicPark';
+    src: url('Jurassic_Park.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .botones2 a {
     background-color: orange;
     border-radius: 20px;
@@ -34,7 +41,7 @@ body {
 .img {
     display: block;
     margin: 10px auto;
-    max-width: 40vw;
+    max-width: 42vw;
     height: auto;
     border: 2px solid black;
     z-index: 0;
@@ -43,17 +50,17 @@ body {
 
 .img2 {
     display: block;
-    width: 120px;
+    width: 250px;
     height: auto;
     position: absolute;
-    margin-left: 775px;
-    margin-top: -180px;
+    left: 925px;
+    margin-top: -280px;
 }
 
 .botondado {
     text-align: center;
-    margin-top: 30px;
-    margin-left: 140px;
+    top: -80px;
+    margin-left: 200px;
     position: relative;
 }
 
@@ -94,29 +101,70 @@ body {
 
 .Zona {
     position: absolute;
-    width: 150px;
-    height: 150px;
-    border: 2px dashed rgba(0,0,0,0.3);
-    left: 130px;
+    width: 300px;
+    height: 220px;
+    border: 2px dashed rgb(0, 0, 0);
+    left: 110px;
     top: 100px;
 }
 
-#Zona1 {top: 280px; left: 130px;}
-#Zona2 {top: 470px; left: 130px;}
-#Zona3 {top: 100px; left: 480px;}
-#Zona4 {top: 470px; left: 480px;}
-#Zona5 {top: 280px; left: 480px;}
+#Zona1 {top: 375px; left: 110px;}
+#Zona2 {top: 660px; left: 110px;}
+#Zona3 {top: 100px; left: 600px;}
+#Zona4 {top: 375px; left: 600px;}
+#Zona5 {top: 660px; left: 600px;}
 
 
+.Tabla_titulo {
+    position: absolute;   
+    top: 100px;           
+    left: 1125px;         
+    color: white;
+    z-index: 10;          
+    margin-top: 0;     
+    letter-spacing: 5px;
+    font-size: 60px;
+    font-family: 'JurassicPark', sans-serif;   
+}
+
+.Tabla {
+    position: absolute;
+    border: 200px solid rgba(0, 0, 0, 0.452);
+    left: 930px;
+    top: 100px;
+    height: 100px;
+    width: 660px;
+    z-index: 1;
+}
+
+/* CELULARES */
 @media screen and (max-width: 576px) {
 
-    .img2 {
-        width: 80vh;
+    body {
+        background-attachment: scroll;
+        background-size: 2000px; 
+        background-position: center center;
     }
+
+    .img2 {
+        position: absolute;   
+        width: 60px;        
+        height: auto;
+        top: 450px;           
+        left: 47%;           
+        transform: translateX(-50%); 
+        margin: 0;
+    }
+
     .botondado a {
         padding: 12px 20px;
         margin-right: 1000px;
         font-size: 1em;
+    }
+
+    .botondado {
+        top: 120px;
+        left: 7px;
     }
 
     .boton_tablero {
@@ -130,12 +178,27 @@ body {
     position: relative;
     left: -80px;         
     top: 10px;
-    width: 50vh;       
+    width: 42vh;       
     max-width: 200px;
-}
+    }
+
+    .Zona {
+        width: 140px;  
+        height: 100px;
+        top: 110px;
+        left: 30px;  
+        border: 2px dashed rgb(0, 0, 0);
+    }
+
+    #Zona1 { top: 230px; left: 30px; }
+    #Zona2 { top: 360px; left: 30px; }
+    #Zona3 { top: 110px; left: 248px; }
+    #Zona4 { top: 230px; left: 248px; }
+    #Zona5 { top: 360px; left: 248px; }
 
 }
 
+/* TABLETS */
 @media screen and (max-width: 577px) and (max-width: 992px) {
     .img {
         max-width: 90vh;
