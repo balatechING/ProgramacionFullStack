@@ -1,5 +1,5 @@
 body {
-    background-image: url(/Recursos/Imagenes/FondoJuego.png);
+    background-image: url(/Recursos/FondoJuego.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -8,6 +8,7 @@ body {
     padding: 0;
     font-family: "Bangers", system-ui;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 @font-face {
@@ -41,13 +42,11 @@ body {
 
 .imgT {
     display: block;
-    margin: -20px auto;
+    margin: 5px 0 0 100px;
     max-width: 40vw;
     height: auto;
     border: 2px solid black;
     z-index: 0;
-    margin-right: 125vh;
-    margin-top: 5px;
 }
 
 .Tablero {
@@ -56,7 +55,8 @@ body {
 
 .botondado {
     position: relative;
-    top: 80px;
+    margin-top: -35vh;
+    left: 0;
     text-align: center;
 }
 
@@ -70,13 +70,76 @@ body {
     border-radius: 8px;
     font-size: 1.2em;
     transition: background 0.3s;
-    margin-left: 8vh;
-    margin-bottom: 2vh;
 }
 
 .botondado a:hover {
     background: #734b13;
     color: #c68427;
+}
+
+.Zona {
+    position: absolute;
+    width: 38.5vh;
+    height: 25vh;
+    top: 15vh;
+    left: 17vh;
+    border: 2px dashed rgb(0, 0, 0);
+}
+
+.Zona2 {
+    position: absolute;
+    width: 38.5vh;
+    height: 25vh;
+    top: 42vh;
+    left: 17vh;
+    border: 2px dashed rgb(0, 0, 0);
+}
+
+.Zona3 {
+    position: absolute;
+    width: 38.5vh;
+    height: 25vh;
+    top: 70vh;
+    left: 17vh;
+    border: 2px dashed rgb(0, 0, 0);    
+}
+
+.Zona4 {
+    position: absolute;
+    width: 38.5vh;
+    height: 25vh;
+    top: 15vh;
+    left: 61vh;
+    border: 2px dashed rgb(0, 0, 0);
+}
+
+.Zona5 {
+    position: absolute;
+    width: 38.5vh;
+    height: 25vh;
+    top: 42vh;
+    left: 61vh;
+    border: 2px dashed rgb(0, 0, 0);
+}
+
+.Zona6 {
+    position: absolute;
+    width: 38.5vh;
+    height: 25vh;
+    top: 70vh;
+    left: 61vh;
+    border: 2px dashed rgb(0, 0, 0);
+}
+
+.Dinos_ALM {
+    position: relative;
+    left: 125vh;
+    top: -63vh;
+    z-index: 1;
+}
+
+.Dinos_ALM img {
+    width: 10vh;
 }
 
 .Tabla_titulo {
@@ -101,15 +164,11 @@ body {
     z-index: 1;
 }
 
-.Dado {
-    display: flex;
-    transform: translateY(-90vw);
-    margin-left: 170px;
-}
 .cara-dado {
     display: none;
     width: 100px;
-    margin-left: 78px;
+    margin-top: -50vhx;
+    margin-left: 45vh;
 }
 
 #dado1 {
@@ -158,19 +217,6 @@ body {
         width: 42vh;
         max-width: 200px;
     }
-
-    .Zona {
-        width: 140px;
-        height: 100px;
-        top: 110px;
-        left: 30px;
-    }
-
-    #Zona1 { top: 230px; left: 30px; }
-    #Zona2 { top: 360px; left: 30px; }
-    #Zona3 { top: 110px; left: 248px; }
-    #Zona4 { top: 230px; left: 248px; }
-    #Zona5 { top: 360px; left: 248px; }
 }
 
 @media screen and (min-width: 577px) and (max-width: 992px) {
@@ -216,17 +262,4 @@ body {
         height: auto;
         border-width: 5vw;
     }
-
-    .Zona {
-        width: 18vw;
-        height: 13vw;
-        top: 4vw;
-        left: 11vw;
-    }
-
-    #Zona1 { top: 18vw; left: 11vw; height: 11vw; }
-    #Zona2 { top: 30vw; left: 11vw; height: 12.5vw; }
-    #Zona3 { top: 4vw; left: 31vw; }
-    #Zona4 { top: 18vw; left: 31vw; height: 11vw; }
-    #Zona5 { top: 30vw; left: 31vw; height: 12.5vw; }
 }

@@ -8,7 +8,7 @@ function ocultarCaras() {
     });
 }
 
-button.addEventListener("click", (event) => {  // <-- pasar event
+button.addEventListener("click", (event) => { 
     event.preventDefault();
     let i = 0;
 
