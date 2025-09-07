@@ -1,5 +1,5 @@
 const dinos = document.querySelectorAll('.Dinos_ALM img');
-const zonas = document.querySelectorAll('.Zonas div');
+const zonas = document.querySelectorAll('.Zona, .Zona2, .Zona3, .Zona4, .Zona5, .Zona6');
 
 let dragged;
 
