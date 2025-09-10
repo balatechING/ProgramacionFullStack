@@ -57,42 +57,57 @@ body {
     gap: 20px;
     width: 100%;
     position: relative;
+    z-index: 1;
 }
 
 .Tablero {
     position: relative;
-    width: 90%;
-    max-width: 700px;
+    width: 40%;
+    max-width: 100%;
+    right: 2.5%;
+    z-index: 1;
 }
 
 .imgT {
-    width: 100%;
-    height: auto;
+    width: 120%;
+    height: 85%;
     border: 2px solid black;
     display: block;
+    position: relative;
+    z-index: 1;
+    
 }
 
-.Zona, .Zona2, .Zona3, .Zona4, .Zona5, .Zona6 {
+.Zona1, .Zona2, .Zona3, .Zona4, .Zona5, .Zona6, .Zona7, .Zona8, .Zona9, .Zona10, .Zona11, .Zona12, .Zona13, .Zona14 {
     position: absolute;
     border: 2px dashed black;
+    z-index: 10;
 }
 
-.Zona { top: 1.5%; left: 1.5%; width: 42%; height: 30%; }
-.Zona2 { top: 1.5%; left: 57%; width: 42%; height: 30%; }
-.Zona3 { top: 32%; left: 1.5%; width: 42%; height: 32%; }
-.Zona4 { top: 32%; left: 57%; width: 42%; height: 32%; }
-.Zona5 { top: 65%; left: 1.5%; width: 42%; height: 32%; }
-.Zona6 { top: 65%; left: 57%; width: 42%; height: 32%; }
+.Zona1 { top: 3%; left: 5%; width: 7%; height: 21%;  }
+.Zona2 { top: 3%; left: 11.5%; width: 7%; height: 21%; }
+.Zona3 { top: 3%; left: 18.5%; width: 7%; height: 21%; }
+.Zona4 { top: 3%; left: 26%; width: 7%; height: 21%; }
+.Zona5 { top: 3%; left: 33.5%; width: 7%; height: 21%; }
+.Zona6 { top: 3%; left: 41%; width: 7%; height: 21%; }
+.Zona7 { top: 5.6%; left: 86%; width: 17.5%; height: 15%;}
+.Zona8 { top: 35%; left: 12.5%; width: 28%; height: 15%;}
+.Zona9 { top: 32.5%; left: 75%; width: 7%; height: 18%;}
+.Zona10 { top: 32.5%; left: 81%; width: 7%; height: 18%;}
+.Zona11 { top: 32.5%; left: 88.5%; width: 7%; height: 18%;}
+.Zona12 { top: 32.5%; left: 96%; width: 7%; height: 18%;}
+.Zona13 { top: 32.5%; left: 102%; width: 7%; height: 18%;}
+.Zona14 {top: 32.5%; left: 109.5%; width: 7%; height: 18%;}
 
 .botondado {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     position: absolute;
-    top: 350px;
-    left: 180px;
+    top: 35%;
+    left: 8%;
     gap: 10px;
-    z-index: 2;
+    z-index: 20;  
 }
 
 .botondado a {
@@ -119,6 +134,7 @@ body {
     position: absolute;
     top: 120%;
     left: 20%;
+    z-index: 20;
 }
 
 #dado1 {
@@ -126,6 +142,7 @@ body {
     position: absolute;
     top: 120%;
     left: 20%;
+    z-index: 20;
 }
 
 .Tabla_section {
@@ -140,14 +157,15 @@ body {
     position: absolute;
     left: 83%;
     top: 12%;
+    z-index: 5;
 }
 
 .Tabla {
     position: absolute;
-    top: 160px;
-    right: 120px;
-    width: 300px;
-    height: 450px;
+    top: 25%;
+    right: 1%;
+    width: 22%;
+    height: 40%;
     border: 0.5vw solid rgba(0, 0, 0, 0.45);
     background: rgba(255, 255, 255, 0.1);
     z-index: 1;
@@ -157,18 +175,19 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 10px;
-    max-width: 300px;
+    gap: 5%;
+    max-width: 20%;
     position: absolute;
-    top: 200px;
-    right: 100px;
-    z-index: 2;
+    top: 32%;
+    right: 2%;
+    z-index: 9999;
 }
 
 .Dinos_ALM img {
-    width: 45%;
-    max-width: 120px;
+    width: 30%;
+    max-width: 50%;
     height: auto;
+    display: flex;
 }
 
 @media screen and (max-width: 992px) {
@@ -183,6 +202,7 @@ body {
         right: auto;
         justify-content: center;
         max-width: 100%;
+        left: 10%;
     }
 
     .botondado {
@@ -203,24 +223,22 @@ body {
         position: absolute;
         left: 110%;
         top: 8%;
-
     }
 
     .Tabla_titulo {
         position: absolute;
-        left: 43%;
-        top: 60%;
+        left: 50%;
+        bottom: 100%;
     }
-    
 }
 
 @media screen and (max-width: 600px) {
-    
     .botondado {
         flex-direction: row;
         align-items: center;
-        gap: 10px;
-        top: 10px;
+        gap: 10%;
+        top: 10%;
+        left: 1%;
     }
 
     .cara-dado {
@@ -230,6 +248,8 @@ body {
 
     .Tablero {
         margin: 0 auto 20px auto;
+        width: 100%;
+        right: 0.1%;
     }
 
     .Tabla_section {
@@ -238,23 +258,29 @@ body {
         align-items: center;
     }
 
+    .Tabla_titulo {
+        top: 64.5%;
+    }
+
     .Tabla {
         position: relative;
         top: 10%;
         right: auto;
         width: 200%;
         max-width: 100%;
-        
     }
 
     .Dinos_ALM {
-        position: absolute;
-        top: 67%;
+        position: relative;
+        top: auto;
         right: auto;
-        justify-content: center;
         max-width: 100%;
-
+        justify-content: center;
+        gap: 10px;
+        z-index: 9999;
     }
 
-
+    .Dinos_ALM img {
+        width: 30%;
+    }
 }
