@@ -78,9 +78,9 @@ body {
     
 }
 
-.Zona1, .Zona2, .Zona3, .Zona4, .Zona5, .Zona6, .Zona7, .Zona8, .Zona9, .Zona10, .Zona11, .Zona12, .Zona13, .Zona14 {
+.Zona1, .Zona2, .Zona3, .Zona4, .Zona5, .Zona6, .Zona7, .Zona8, .Zona9, .Zona10, .Zona11, .Zona12, .Zona13, .Zona14, .Zona15, .Zona16 {
     position: absolute;
-    border: 2px dashed black;
+    border: 2px dashed rgba(0, 0, 0, 0.418);
     z-index: 10;
 }
 
@@ -97,7 +97,9 @@ body {
 .Zona11 { top: 32.5%; left: 88.5%; width: 7%; height: 18%;}
 .Zona12 { top: 32.5%; left: 96%; width: 7%; height: 18%;}
 .Zona13 { top: 32.5%; left: 102%; width: 7%; height: 18%;}
-.Zona14 {top: 32.5%; left: 109.5%; width: 7%; height: 18%;}
+.Zona14 { top: 32.5%; left: 109.5%; width: 7%; height: 18%;}
+.Zona15 { top: 58%; left: 13.5%; width: 30%; height: 18%;}
+.Zona16 { top: 60.5%; left: 79%; width: 30%; height: 18%;}
 
 .botondado {
     display: flex;
