@@ -286,3 +286,117 @@ body {
         width: 30%;
     }
 }
+
+
+@media (max-width: 767px) {
+    .Zona1 { top: 5%; left: 5%; width: 7%; height: 22%;  }
+    .Zona2 { top: 5%; left: 11.5%; width: 7%; height: 22%; }
+    .Zona3 { top: 5%; left: 18.5%; width: 7%; height: 22%; }
+    .Zona4 { top: 5%; left: 26%; width: 7%; height: 22%; }
+    .Zona5 { top: 5%; left: 33.5%; width: 7%; height: 22%; }
+    .Zona6 { top: 5%; left: 41%; width: 7%; height: 22%; }
+    .Zona7 { top: 8.5%; left: 86%; width: 17.5%; height: 15%;}
+    .Zona8 { top: 42%; left: 12.5%; width: 28%; height: 15%;}
+    .Zona9 { top: 39%; left: 75%; width: 7%; height: 19%;}
+    .Zona10 { top: 39%; left: 81%; width: 7%; height: 19%;}
+    .Zona11 { top: 39%; left: 88.5%; width: 7%; height: 19%;}
+    .Zona12 { top: 39%; left: 96%; width: 7%; height: 19%;}
+    .Zona13 { top: 39%; left: 102%; width: 7%; height: 19%;}
+    .Zona14 { top: 39%; left: 109.5%; width: 7%; height: 19%;}
+    .Zona15 { top: 71%; left: 13.5%; width: 30%; height: 18%;}
+    .Zona16 { top: 72.5%; left: 79%; width: 30%; height: 18%;}
+
+    .Tabla {
+        position: absolute;
+        max-height: 100%;
+        height: 40%;
+        top: 78%;
+        left: 10%;
+    }
+
+    .Dinos_ALM {
+        position: absolute;
+        max-width: 100%;
+        width: 90%;
+        gap: 10%;
+        top: 80%;
+        left: 15%;
+    }
+
+    .Tabla_titulo {
+        position: absolute;
+        top: 75%
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    
+    
+    .Tablero {
+        max-width: 100%;
+        width: 60%;
+        position: absolute;
+        top: 100%;
+        left: 2%;
+    }
+
+    .Dinos_ALM {
+        max-width: 100%;
+        width: 25%;
+        justify-content: center;
+        left: 75%;
+        top: 28%;
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;    
+        gap: 10% 
+    }
+
+    .Tabla {
+        max-height: 100%;
+        height: 25%;
+    }
+
+    .Tabla_titulo {
+        position: absolute;
+        margin-left: 32%;
+        margin-top: 11%;
+    }
+
+    .Zona1 { top: 5%; left: 5%; width: 7%; height: 22%;  }
+    .Zona2 { top: 5%; left: 11.5%; width: 7%; height: 22%; }
+    .Zona3 { top: 5%; left: 18.5%; width: 7%; height: 22%; }
+    .Zona4 { top: 5%; left: 26%; width: 7%; height: 22%; }
+    .Zona5 { top: 5%; left: 33.5%; width: 7%; height: 22%; }
+    .Zona6 { top: 5%; left: 41%; width: 7%; height: 22%; }
+    .Zona7 { top: 8.5%; left: 86%; width: 17.5%; height: 15%;}
+    .Zona8 { top: 42%; left: 12.5%; width: 28%; height: 15%;}
+    .Zona9 { top: 39%; left: 75%; width: 7%; height: 19%;}
+    .Zona10 { top: 39%; left: 81%; width: 7%; height: 19%;}
+    .Zona11 { top: 39%; left: 88.5%; width: 7%; height: 19%;}
+    .Zona12 { top: 39%; left: 96%; width: 7%; height: 19%;}
+    .Zona13 { top: 39%; left: 102%; width: 7%; height: 19%;}
+    .Zona14 { top: 39%; left: 109.5%; width: 7%; height: 19%;}
+    .Zona15 { top: 71%; left: 13.5%; width: 30%; height: 18%;}
+    .Zona16 { top: 72.5%; left: 79%; width: 30%; height: 18%;}
+
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .Tablero {
+        position: absolute;
+        right: 10%;
+    }
+
+    .botondado {
+        position: absolute;
+        left: 81.5%;
+    }
+
+    .Tabla {
+        position: absolute;
+        top: 26%;
+        height: 30%;
+
+    }
+}
