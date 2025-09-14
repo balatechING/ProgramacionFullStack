@@ -385,18 +385,31 @@ body {
 @media (min-width: 1024px) and (max-width: 1440px) {
     .Tablero {
         position: absolute;
-        right: 10%;
+        right: 58%;
     }
 
     .botondado {
         position: absolute;
-        left: 81.5%;
+        left: 55%;
     }
 
     .Tabla {
         position: absolute;
-        top: 26%;
+        top: 40%;
         height: 30%;
+        left: 51%;
+    }
+
+    .Dinos_ALM {
+        position: absolute;
+        top: 42%;
+        right: 28%;
+    }
+
+    .Tabla_titulo {
+        top: 35%;
+        left: 57.5%;
+        position: absolute;
 
     }
 
