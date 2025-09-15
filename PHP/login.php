@@ -18,9 +18,14 @@
         $correo = $_POST['correo'];
         $contrasenia = $_POST['contrasenia'];
 
-        $sql = $conexion->query("SELECT * FROM usuarios WHERE correo_usuario = '$correo' AND contrasenia = '$contrasenia' AND nombre_usuario = '$_POST[name]' ");
+        $sql = $conexion->query("SELECT * FROM usuarios WHERE correo_usuario = '$correo' AND nombre_usuario = '$nombre' ");
         if($datos = $sql->fetch_object()){
-            header("location: ../HTML y CSS/inicio.html");
+            if(password_verify($contrasenia, $datos->contrasenia)){
+            header("location:../HTML y CSS/index.html");
+            exit();
+            }else{
+            echo "Datos incorrectos";
+            }
         }else{
             echo "Datos incorrectos";
         }
