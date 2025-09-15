@@ -1,0 +1,288 @@
+body {
+    background-image: url(../Recursos/FondoJuego.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: "Bangers", system-ui;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+@font-face {
+    font-family: 'JurassicPark';
+    src: url('Jurassic_Park.ttf') format('truetype');
+}
+
+.botones2 {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.botones2 a {
+    background-color: orange;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 15px 30px;
+    color: #b3741e;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #1a1105;
+    transition: background 0.3s;
+    letter-spacing: 2px;
+}
+
+.botones2 a:hover {
+    background: #734b13;
+    color: #c68427;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.Dado_Tablero {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    gap: 20px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.Tablero {
+    position: relative;
+    width: 40%;
+    max-width: 100%;
+    right: 2.5%;
+    z-index: 1;
+}
+
+.imgT {
+    width: 120%;
+    height: 85%;
+    border: 2px solid black;
+    display: block;
+    position: relative;
+    z-index: 1;
+    
+}
+
+.Zona1, .Zona2, .Zona3, .Zona4, .Zona5, .Zona6, .Zona7, .Zona8, .Zona9, .Zona10, .Zona11, .Zona12, .Zona13, .Zona14, .Zona15, .Zona16 {
+    position: absolute;
+    border: 2px dashed rgba(0, 0, 0, 0.418);
+    z-index: 10;
+}
+
+.Zona1 { top: 3%; left: 5%; width: 7%; height: 21%;  }
+.Zona2 { top: 3%; left: 11.5%; width: 7%; height: 21%; }
+.Zona3 { top: 3%; left: 18.5%; width: 7%; height: 21%; }
+.Zona4 { top: 3%; left: 26%; width: 7%; height: 21%; }
+.Zona5 { top: 3%; left: 33.5%; width: 7%; height: 21%; }
+.Zona6 { top: 3%; left: 41%; width: 7%; height: 21%; }
+.Zona7 { top: 5.6%; left: 86%; width: 17.5%; height: 15%;}
+.Zona8 { top: 35%; left: 12.5%; width: 28%; height: 15%;}
+.Zona9 { top: 32.5%; left: 75%; width: 7%; height: 18%;}
+.Zona10 { top: 32.5%; left: 81%; width: 7%; height: 18%;}
+.Zona11 { top: 32.5%; left: 88.5%; width: 7%; height: 18%;}
+.Zona12 { top: 32.5%; left: 96%; width: 7%; height: 18%;}
+.Zona13 { top: 32.5%; left: 102%; width: 7%; height: 18%;}
+.Zona14 { top: 32.5%; left: 109.5%; width: 7%; height: 18%;}
+.Zona15 { top: 58%; left: 13.5%; width: 30%; height: 18%;}
+.Zona16 { top: 60.5%; left: 79%; width: 30%; height: 18%;}
+
+.botondado {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 35%;
+    left: 8%;
+    gap: 10px;
+    z-index: 20;  
+}
+
+.botondado a {
+    padding: 15px 30px;
+    background-color: orange;
+    color: #b3741e;
+    text-shadow: 1px 1px 0 #1a1105;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    transition: background 0.3s;
+}
+
+.botondado a:hover {
+    background: #734b13;
+    color: #c68427;
+}
+
+.cara-dado {
+    display: none;
+    max-width: 80px;
+    width: 80%;
+    margin: 0;
+    position: absolute;
+    top: 120%;
+    left: 20%;
+    z-index: 20;
+}
+
+#dado1 {
+    display: block;
+    position: absolute;
+    top: 120%;
+    left: 20%;
+    z-index: 20;
+}
+
+.Tabla_section {
+    text-align: center;
+    width: 100%;
+}
+
+.Tabla_titulo {
+    color: white;
+    font-size: clamp(24px, 4vw, 40px);
+    font-family: 'JurassicPark', sans-serif;
+    position: absolute;
+    left: 83%;
+    top: 12%;
+    z-index: 5;
+}
+
+.Tabla {
+    position: absolute;
+    top: 25%;
+    right: 1%;
+    width: 22%;
+    height: 40%;
+    border: 0.5vw solid rgba(0, 0, 0, 0.45);
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.Dinos_ALM {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 5%;
+    max-width: 20%;
+    position: absolute;
+    top: 32%;
+    right: 2%;
+    z-index: 9999;
+}
+
+.Dinos_ALM img {
+    width: 30%;
+    max-width: 50%;
+    height: auto;
+    display: flex;
+}
+
+@media screen and (max-width: 992px) {
+    .Dado_Tablero {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Dinos_ALM {
+        position: relative;
+        top: auto;
+        right: auto;
+        justify-content: center;
+        max-width: 100%;
+        left: 10%;
+    }
+
+    .botondado {
+        position: relative;
+        left: 0;
+        align-items: center;
+    }
+
+    .cara-dado {
+        position: absolute;
+        width: 20%;
+        min-width: 50px;
+        left: 110%;
+        top: 8%;
+    }
+
+    #dado1 {
+        position: absolute;
+        left: 110%;
+        top: 8%;
+    }
+
+    .Tabla_titulo {
+        position: absolute;
+        left: 50%;
+        bottom: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .botondado {
+        flex-direction: row;
+        align-items: center;
+        gap: 10%;
+        top: 10%;
+        left: 1%;
+    }
+
+    .cara-dado {
+        width: 50px;
+        min-width: 50px;
+    }
+
+    .Tablero {
+        margin: 0 auto 20px auto;
+        width: 100%;
+        right: 0.1%;
+    }
+
+    .Tabla_section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Tabla_titulo {
+        top: 64.5%;
+    }
+
+    .Tabla {
+        position: relative;
+        top: 10%;
+        right: auto;
+        width: 200%;
+        max-width: 100%;
+    }
+
+    .Dinos_ALM {
+        position: relative;
+        top: auto;
+        right: auto;
+        max-width: 100%;
+        justify-content: center;
+        gap: 10px;
+        z-index: 9999;
+    }
+
+    .Dinos_ALM img {
+        width: 30%;
+    }
+}

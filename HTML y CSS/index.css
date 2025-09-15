@@ -1,0 +1,172 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Bangers", system-ui;
+    background-image: url(../Recursos/FondoInicio.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+.logo {
+    top: 940px;
+    display: inline-flex;
+    position: absolute;
+    width: 90px;
+    height: auto;
+    z-index: 1000;
+    padding: 5px 20px;
+    color: #fff; 
+}
+.button {
+    background-color: orange;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    display: inline-block;
+    color: #b3741e;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #1a1105;
+    transition: background 0.3s, color 0.3s;
+}
+.boton-sesion{
+    background-color: orange;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    display: inline-block;
+    color: #b3741e;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #1a1105;
+    transition: background 0.3s, color 0.3s;
+}
+
+.boton-sesion:hover {
+    background: #734b13;
+    color: #fff;
+}
+
+.boton-registro{
+    background-color: orange;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    display: inline-block;
+    color: #b3741e;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #1a1105;
+    transition: background 0.3s, color 0.3s;
+}
+.titulo {
+    background-color: orange;
+    padding: 10px 20px;
+    border: 2px solid black;
+    color: #fff;
+    text-shadow: 1px 1px 0 #1a1105;
+    border-radius: 10px;
+    margin: 0 auto; 
+    display: inline-block; 
+}
+
+.header-botones {
+    display: flex;
+    margin-left: 1px;
+}
+
+.botones {
+    background-color: orange;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 20px 40px;
+    display: inline-block;
+    color: #b3741e;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #1a1105;
+    transition: background 0.3s, color 0.3s;
+}
+
+.botones:hover {
+    background: #734b13;
+    color: #fff;
+}
+
+.menu-boton {
+    background-color: orange;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 20px 40px;
+    display: inline-block;
+    color: #b3741e;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #1a1105;
+    transition: background 0.3s, color 0.3s;
+}
+
+.menu-boton:hover {
+    background: #734b13;
+    color: #fff;
+}
+
+footer {
+    background-color: orange;
+    font-size: 1.25em;
+    color: #936018;
+    text-shadow: 1px 1px 0 #1a1105;
+    border: 2px solid black;
+    padding: 10px 20px;
+    letter-spacing: 1.5px;
+    margin-top: auto;
+}
+
+@media (max-width: 576px) {
+    .titulo {
+        font-size: 1.8em;
+    }
+    .header-botones {
+        flex-direction: column;
+        align-items: center;
+    }
+    .botones {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .menu-boton {
+        padding: 15px 30px;
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+    .botones {
+        padding: 18px 30px;
+        font-size: 1em;
+    }
+    .titulo {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-botones {
+        position: static; 
+        justify-content: center;     
+        margin-top: 85px;           
+    }
+}
