@@ -1,0 +1,75 @@
+.form-container {
+    background-color: #ffa500; /* Naranja */
+    padding: 20px;
+    max-width: 600px;
+    margin: 40px auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+}
+
+.form-container label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.form-container input {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-container button {
+    width: 100%;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #e65c00;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: orange; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.Titulo{
+    background-color: orange;
+    padding: 10px 20px;
+    border: 2px solid black;
+    color: #fff;
+    text-shadow: 1px 1px 0 #1a1105;
+    border-radius: 10px;
+    margin: 0 auto; 
+    display: inline-block;
+}
+
+.Boton {
+    background-color: orange;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    display: inline-block;
+    color: #b3741e;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #1a1105;
+    transition: background 0.3s, color 0.3s;
+}

@@ -31,10 +31,13 @@
         <h1 class="Titulo">Draftosaurus</h1>
         <a class="Boton" href="../HTML y CSS/index.html">Volver</a>
     </header>
-    <div class="Container">
+    <div class="form-container">
         <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
+        <label for="nombre">Nombre de Usuario:</label>
         <input type="text" name="name" id="name" placeholder="Ingrese su Nombre de Usuario">
+        <label for="correo">Correo:</label>
         <input type="text" name="correo" id="correo" placeholder="Ingrese su correo">
+        <label for="contrasenia">Contraseña</label>
         <input type="password" name="contrasenia" id="contrasenia" placeholder="Ingrese su contraseña">
         <button type="submit" name="Ingresar" id="Ingresar">Iniciar Sesion</button>
         </form>
