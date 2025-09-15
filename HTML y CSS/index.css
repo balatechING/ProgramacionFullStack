@@ -3,7 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: "Bangers", system-ui;
-    background-image: url(/Recursos/FondoInicio.png);
+    background-image: url(../Recursos/FondoInicio.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

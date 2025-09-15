@@ -1,0 +1,128 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    margin-bottom: 114px;
+    padding: 20px 0;
+}
+.form-container {
+    background-color: #ffa500; 
+    padding: 20px;
+    max-width: 600px;
+    margin: 40px auto; 
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: orange; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.vacios{
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.logrado{
+    color: green;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    margin: 15px 0;
+}
+.form-container h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.form-container p {
+    text-align: center;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.form-container button {
+    width: 100%;
+    background-color: #ff6600; 
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.form-container input {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+button{
+    background-color: orange;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    display: inline-block;
+    color: #b3741e;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #1a1105;
+    transition: background 0.3s, color 0.3s;
+}
+
+.boton{
+    background-color: orange;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    display: inline-block;
+    color: #b3741e;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #1a1105;
+    transition: background 0.3s, color 0.3s;
+}
+
+.title {
+    background-color: orange;
+    padding: 10px 20px;
+    border: 2px solid black;
+    color: #fff;
+    text-shadow: 1px 1px 0 #1a1105;
+    border-radius: 10px;
+    margin: 0 auto; 
+    display: inline-block;
+}
+
+form {
+    background-color: orange;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form.input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
