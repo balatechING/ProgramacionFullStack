@@ -1,5 +1,5 @@
 body {
-    background-image: url(/Recursos/Dinosaurio.png);
+    background-image: url(../Recursos/Dinosaurio.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,7 +15,7 @@ body {
     max-width: 80%;
     height: 80%;
     left: 32%; 
-    background-image: url(/Recursos/Pizarron.png);
+    background-image: url(../Recursos/Pizarron.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
