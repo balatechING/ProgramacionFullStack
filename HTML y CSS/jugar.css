@@ -163,6 +163,12 @@ body {
     top: 13%;
     z-index: 5;
     border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.Tabla_titulo button:hover {
+    background: #734b13;
+    color: #c68427;
 }
 
 .Tabla {

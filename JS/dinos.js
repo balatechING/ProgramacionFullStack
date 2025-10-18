@@ -1,8 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     const dinosContainer = document.querySelector(".Dinos_ALM");
     const btnMostrar = document.getElementById("DinoGen");
+    let yaGenerado = false;
 
     btnMostrar.addEventListener("click", () => {
+        if (yaGenerado) return;
+
         dinosContainer.innerHTML = "";
 
         const dinos = [
@@ -17,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const cantidad = 6;
 
         for (let i = 0; i < cantidad; i++) {
-
             const randomIndex = Math.floor(Math.random() * dinos.length);
             const src = dinos[randomIndex];
 
@@ -31,5 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (typeof activarDragDrop === "function") {
             activarDragDrop();
         }
+
+        yaGenerado = true;
     });
 });
