@@ -13,7 +13,7 @@ body {
 
 @font-face {
     font-family: 'JurassicPark';
-    src: url('Jurassic_Park.ttf') format('truetype');
+    src: url('/Presentacion/CSS/Jurassic_Park.ttf') format('truetype');
 }
 
 .botones2 {
