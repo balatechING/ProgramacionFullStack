@@ -68,6 +68,21 @@ body {
     z-index: 1;
 }
 
+.Puntuaciones {
+    position: absolute;
+    bottom: 93.3%;
+    left: 54%;
+    background-color: orange;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 15px 30px;
+    color: #b3741e;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #1a1105;
+}
+
 .imgT {
     width: 120%;
     height: 85%;
@@ -199,6 +214,13 @@ body {
     max-width: 50%;
     height: auto;
     display: flex;
+}
+
+@media screen and (max-width: 426px) {
+    .Puntuaciones {
+        bottom: 84.7%;
+        left: 0.5%;
+    }
 }
 
 @media screen and (max-width: 992px) {
@@ -345,8 +367,14 @@ body {
         max-width: 100%;
         width: 60%;
         position: absolute;
-        top: 100%;
+        top: 110%;
         left: 2%;
+    }
+
+    .Puntuaciones {
+        position: absolute;
+        left: 20%;
+        bottom: 85%;
     }
 
     .Dinos_ALM {
@@ -368,8 +396,8 @@ body {
 
     .Tabla_titulo {
         position: absolute;
-        margin-left: 32%;
-        margin-top: 11%;
+        left: 80.2%;
+        top: 20%;
     }
 
     .Zona1 { top: 5%; left: 5%; width: 7%; height: 22%;  }
@@ -399,14 +427,20 @@ body {
 
     .botondado {
         position: absolute;
-        left: 55%;
+        left: 80%;
+    }
+
+    .Puntuaciones {
+        position: absolute;
+        left: 15%;
+        bottom: 92.5%;
     }
 
     .Tabla {
         position: absolute;
         top: 40%;
         height: 30%;
-        left: 51%;
+        left: 76%;
     }
 
     .Dinos_ALM {
@@ -416,8 +450,8 @@ body {
     }
 
     .Tabla_titulo {
-        top: 35%;
-        left: 57.5%;
+        top: 20%;
+        left: 48.2%;
         position: absolute;
 
     }

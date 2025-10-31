@@ -8,32 +8,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
         dinosContainer.innerHTML = "";
 
-        const dinos = [
-            "../Recursos/Dino1.png",
-            "../Recursos/Dino2.png",
-            "../Recursos/Dino3.png",
-            "../Recursos/Dino4.png",
-            "../Recursos/Dino5.png",
-            "../Recursos/Dino6.png"
-        ];
-
+        const tipos = ["Dino1","Dino2","Dino3","Dino4","Dino5","Dino6"];
         const cantidad = 6;
 
         for (let i = 0; i < cantidad; i++) {
-            const randomIndex = Math.floor(Math.random() * dinos.length);
-            const src = dinos[randomIndex];
+            const randomIndex = Math.floor(Math.random() * tipos.length);
+            const tipo = tipos[randomIndex];
+            const src = `../Recursos/${tipo}.png`;
 
             const img = document.createElement("img");
             img.src = src;
             img.alt = "Dinosaurio";
             img.draggable = true;
+
+            img.dataset.tipo = tipo;
+
             dinosContainer.appendChild(img);
         }
 
-        if (typeof activarDragDrop === "function") {
-            activarDragDrop();
-        }
+        if (typeof activarDragDrop === "function") activarDragDrop();
+        if (typeof activarDragDropSimilitud === "function") activarDragDropSimilitud();
 
         yaGenerado = true;
     });
 });
+
