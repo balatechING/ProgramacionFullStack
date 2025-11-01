@@ -19,7 +19,7 @@ const puntosPorZona = {
     Zona16: 7
 };
 
-const puntosDiv = document.querySelector(".Puntuaciones");
+const puntosDiv = document.querySelector(".boton_tablero");
 
 function actualizarPuntos() {
     puntosDiv.textContent = `PUNTOS: ${puntajeTotal}`;
