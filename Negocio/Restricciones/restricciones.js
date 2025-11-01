@@ -16,7 +16,7 @@ const puntosPorZona = {
     Zona12: 10,
     Zona13: 15,
     Zona14: 21,
-    Zona15: 5,  
+    Zona15: 5,
     Zona16: 7
 };
 
@@ -41,16 +41,23 @@ function sumarPuntos(zonaId, zona) {
     actualizarPuntos();
 }
 
+function obtenerNumeroZona(zona) {
+    const claseZona = Array.from(zona.classList).find(c => c.startsWith("Zona"));
+    if (!claseZona) return NaN;
+    return parseInt(claseZona.replace("Zona", ""), 10);
+}
+
 // BOSQUE DE LA SEMEJANZA
 const ZonaSimilitud = document.querySelectorAll(".Zona1, .Zona2, .Zona3, .Zona4, .Zona5, .Zona6");
 let tipoRecinto = null;
+let ultimoBosqueColocado = 0;
 
 function activarDragDropSimilitud() {
     const dinos = document.querySelectorAll(".Dinos_ALM img");
 
     dinos.forEach(dino => {
         dino.setAttribute("draggable", "true");
-        dino.addEventListener("dragstart", e => {
+        dino.addEventListener("dragstart", () => {
             window.dinoArrastrado = dino;
         });
     });
@@ -59,7 +66,10 @@ function activarDragDropSimilitud() {
         zona.addEventListener("dragover", e => {
             if (!window.dinoArrastrado) return;
             const tipoDino = window.dinoArrastrado.dataset.tipo;
-            if (!tipoRecinto || tipoDino === tipoRecinto) {
+            const zonaNum = obtenerNumeroZona(zona);
+            const esZonaValida = zonaNum === ultimoBosqueColocado + 1;
+
+            if (esZonaValida && (!tipoRecinto || tipoDino === tipoRecinto) && zona.children.length === 0) {
                 e.preventDefault();
                 e.dataTransfer.dropEffect = "move";
             } else {
@@ -70,29 +80,32 @@ function activarDragDropSimilitud() {
         zona.addEventListener("drop", e => {
             e.preventDefault();
             if (!window.dinoArrastrado) return;
+
             const dino = window.dinoArrastrado;
             const tipoDino = dino.dataset.tipo;
-            if (!tipoRecinto) tipoRecinto = tipoDino;
-            if (tipoDino !== tipoRecinto) {
+            const zonaNum = obtenerNumeroZona(zona);
+            const esZonaValida = zonaNum === ultimoBosqueColocado + 1;
+
+            if (!esZonaValida || (tipoRecinto && tipoDino !== tipoRecinto) || zona.children.length > 0) {
                 window.dinoArrastrado = null;
                 return;
             }
 
-            if (zona.children.length > 0) {
-                window.dinoArrastrado = null;
-                return;
-            }
+            if (!tipoRecinto) tipoRecinto = tipoDino;
+            ultimoBosqueColocado = zonaNum;
 
             dino.style.width = "90%";
             dino.style.height = "auto";
             dino.style.position = "absolute";
+
             const rect = zona.getBoundingClientRect();
             const x = rect.width / 2 - dino.offsetWidth / 2;
             const y = rect.height / 2 - dino.offsetHeight / 2;
             dino.style.left = x + "px";
             dino.style.top = y + "px";
+
             zona.appendChild(dino);
-            sumarPuntos(zona.id, zona); 
+            sumarPuntos(zona.id, zona);
             window.dinoArrastrado = null;
         });
     });
@@ -101,13 +114,14 @@ function activarDragDropSimilitud() {
 // PRADO DE LA DIFERENCIA
 const ZonaPradera = document.querySelectorAll(".Zona9, .Zona10, .Zona11, .Zona12, .Zona13, .Zona14");
 let tiposColocados = [];
+let ultimaPraderaColocada = 8;
 
 function activarDragDropPradera() {
     const dinos = document.querySelectorAll(".Dinos_ALM img");
 
     dinos.forEach(dino => {
         dino.setAttribute("draggable", "true");
-        dino.addEventListener("dragstart", e => {
+        dino.addEventListener("dragstart", () => {
             window.dinoArrastrado = dino;
         });
     });
@@ -116,7 +130,10 @@ function activarDragDropPradera() {
         zona.addEventListener("dragover", e => {
             if (!window.dinoArrastrado) return;
             const tipoDino = window.dinoArrastrado.dataset.tipo;
-            if (zona.children.length === 0 && !tiposColocados.includes(tipoDino)) {
+            const zonaNum = obtenerNumeroZona(zona);
+            const esZonaValida = zonaNum === ultimaPraderaColocada + 1;
+
+            if (esZonaValida && zona.children.length === 0 && !tiposColocados.includes(tipoDino)) {
                 e.preventDefault();
                 e.dataTransfer.dropEffect = "move";
             } else {
@@ -130,26 +147,27 @@ function activarDragDropPradera() {
 
             const dino = window.dinoArrastrado;
             const tipoDino = dino.dataset.tipo;
+            const zonaNum = obtenerNumeroZona(zona);
+            const esZonaValida = zonaNum === ultimaPraderaColocada + 1;
 
-            if (zona.children.length > 0) {
-                window.dinoArrastrado = null;
-                return;
-            }
-
-            if (tiposColocados.includes(tipoDino)) {
+            if (!esZonaValida || zona.children.length > 0 || tiposColocados.includes(tipoDino)) {
                 window.dinoArrastrado = null;
                 return;
             }
 
             tiposColocados.push(tipoDino);
+            ultimaPraderaColocada = zonaNum;
+
             dino.style.width = "90%";
             dino.style.height = "auto";
             dino.style.position = "absolute";
+
             const rect = zona.getBoundingClientRect();
             const x = rect.width / 2 - dino.offsetWidth / 2;
             const y = rect.height / 2 - dino.offsetHeight / 2;
             dino.style.left = x + "px";
             dino.style.top = y + "px";
+
             zona.appendChild(dino);
             sumarPuntos(zona.id, zona);
             window.dinoArrastrado = null;
@@ -168,7 +186,7 @@ function activarDragDropRey() {
 
     dinos.forEach(dino => {
         dino.setAttribute("draggable", "true");
-        dino.addEventListener("dragstart", e => {
+        dino.addEventListener("dragstart", () => {
             window.dinoArrastrado = dino;
         });
     });
@@ -201,7 +219,7 @@ function activarDragDropRey() {
         dino.style.top = y + "px";
         ZonaRey.appendChild(dino);
         reyOcupado = true;
-        sumarPuntos(ZonaRey.id, ZonaRey); 
+        sumarPuntos(ZonaRey.id, ZonaRey);
         window.dinoArrastrado = null;
     });
 }
@@ -215,7 +233,7 @@ function activarDragDropSoledad() {
 
     dinos.forEach(dino => {
         dino.setAttribute("draggable", "true");
-        dino.addEventListener("dragstart", e => {
+        dino.addEventListener("dragstart", () => {
             window.dinoArrastrado = dino;
         });
     });
@@ -224,7 +242,6 @@ function activarDragDropSoledad() {
         zona.addEventListener("dragover", e => {
             if (!window.dinoArrastrado) return;
             const tipoDino = window.dinoArrastrado.dataset.tipo;
-
             if (zona.children.length === 0 && !tiposUsados.includes(tipoDino)) {
                 e.preventDefault();
                 e.dataTransfer.dropEffect = "move";
@@ -258,14 +275,14 @@ function activarDragDropSoledad() {
             dino.style.top = y + "px";
 
             zona.appendChild(dino);
-            sumarPuntos(zona.id, zona); 
+            sumarPuntos(zona.id, zona);
             window.dinoArrastrado = null;
         });
     });
 }
 
 // PRADERA DEL AMOR
-const ZonaLago = document.querySelectorAll(".Zona15"); 
+const ZonaLago = document.querySelectorAll(".Zona15");
 let tipoLago = null;
 let cantidadLago = 0;
 
@@ -274,7 +291,7 @@ function activarDragDropLago() {
 
     dinos.forEach(dino => {
         dino.setAttribute("draggable", "true");
-        dino.addEventListener("dragstart", e => {
+        dino.addEventListener("dragstart", () => {
             window.dinoArrastrado = dino;
         });
     });
@@ -283,7 +300,6 @@ function activarDragDropLago() {
         zona.addEventListener("dragover", e => {
             if (!window.dinoArrastrado) return;
             const tipoDino = window.dinoArrastrado.dataset.tipo;
-
             if ((cantidadLago < 2) && (!tipoLago || tipoDino === tipoLago)) {
                 e.preventDefault();
                 e.dataTransfer.dropEffect = "move";
@@ -318,7 +334,7 @@ function activarDragDropLago() {
             dino.style.top = y + "px";
 
             if (dino.parentNode !== zona) zona.appendChild(dino);
-            sumarPuntos(zona.id, zona); 
+            sumarPuntos(zona.id, zona);
             window.dinoArrastrado = null;
         });
     });
@@ -333,7 +349,7 @@ function activarDragDropTrio() {
 
     dinos.forEach(dino => {
         dino.setAttribute("draggable", "true");
-        dino.addEventListener("dragstart", e => {
+        dino.addEventListener("dragstart", () => {
             window.dinoArrastrado = dino;
         });
     });
@@ -368,7 +384,7 @@ function activarDragDropTrio() {
             dino.style.top = y + "px";
 
             zona.appendChild(dino);
-            sumarPuntos(zona.id, zona); 
+            sumarPuntos(zona.id, zona);
             window.dinoArrastrado = null;
         });
     });
@@ -378,7 +394,7 @@ document.addEventListener("DOMContentLoaded", () => {
     activarDragDropSimilitud();
     activarDragDropPradera();
     activarDragDropRey();
-    activarDragDropSoledad();  
+    activarDragDropSoledad();
     activarDragDropLago();
     activarDragDropTrio();
 });
