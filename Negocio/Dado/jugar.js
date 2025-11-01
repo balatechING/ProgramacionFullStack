@@ -1,7 +1,7 @@
 const button = document.getElementById("tirarDado");
 
 const dados = ["dado1", "dado2", "dado3", "dado4", "dado5", "dado6"];
-let caraActual = null; 
+let caraActual = null;
 
 function ocultarCaras() {
     dados.forEach(id => {
@@ -11,8 +11,9 @@ function ocultarCaras() {
 
 const zonasBosque = [1, 2, 3, 4, 5, 6, 7, 8].map(n => `.Zona${n}`);
 const zonasLlanura = [9, 10, 11, 12, 13, 14, 15, 16].map(n => `.Zona${n}`);
-const zonaCafeteria = [".Zona15"];
-const zonaAseos = [".Zona16"];
+
+const zonasIzquierda = [1, 2, 3, 4, 5, 6, 8, 15].map(n => `.Zona${n}`);
+const zonasDerecha = [7, 9, 10, 11, 12, 13, 14, 16].map(n => `.Zona${n}`);
 
 button.addEventListener("click", (event) => { 
     event.preventDefault();
@@ -30,6 +31,7 @@ button.addEventListener("click", (event) => {
         const aleatorio = Math.floor(Math.random() * dados.length);
         document.getElementById(dados[aleatorio]).style.display = "block";
         caraActual = aleatorio + 1;
+        console.log("Resultado del dado:", caraActual);
     }, 2000);
 });
 
@@ -43,10 +45,10 @@ function puedeSoltarPorDado(zona) {
         case 2: 
             return zonasLlanura.includes(`.${claseZona}`);
         case 3: 
-            return zonaAseos.includes(`.${claseZona}`);
+            return zonasDerecha.includes(`.${claseZona}`);
         case 4: 
-            return zonaCafeteria.includes(`.${claseZona}`);
-        case 5: 
+            return zonasIzquierda.includes(`.${claseZona}`);
+        case 5:
             return zona.children.length === 0;
         case 6:
             const tieneTrex = zona.querySelector("img[data-tipo='Dino3']");
@@ -63,7 +65,7 @@ document.addEventListener("dragover", (e) => {
     if (!zona) return;
 
     if (!puedeSoltarPorDado(zona)) {
-        e.stopImmediatePropagation();
+        e.stopImmediatePropagation(); 
         e.dataTransfer.dropEffect = "none";
     }
 });
@@ -75,7 +77,7 @@ document.addEventListener("drop", (e) => {
     if (!zona) return;
 
     if (!puedeSoltarPorDado(zona)) {
-        e.stopImmediatePropagation(); 
+        e.stopImmediatePropagation();
         e.preventDefault();
         zona.style.borderColor = "red";
         setTimeout(() => zona.style.borderColor = "", 500);
