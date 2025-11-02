@@ -1,0 +1,51 @@
+body {
+    background-image: url(/Recursos/Historial.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: "Bangers", system-ui;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.botones2 {
+    gap: 10px;
+    padding: 10px;
+    flex-wrap: wrap;
+    position: absolute;
+    right: 91.8%;
+    top: 1.2%;
+    
+}
+
+.botones2 a {
+    background-color: orange;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 15px 30px;
+    color: #b3741e;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #1a1105;
+    transition: background 0.3s;
+    letter-spacing: 2px;
+}
+
+.botones2 a:hover {
+    background: #734b13;
+    color: #c68427;
+}
+
+.Historial {
+    position: absolute;
+    top: 11%;
+    right: 35%;
+    width: 30%;
+    height: 75%;
+    border: 0.2vw solid rgba(0, 0, 0, 0.45);
+    background: rgba(255, 255, 255, 0.1);
+}

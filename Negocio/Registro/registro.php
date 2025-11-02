@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="../HTML Y CSS/registro.css">
+    <link rel="stylesheet" href="../../Presentacion/CSS/registro.css">
 </head>
 <body>
     <?php
@@ -32,7 +32,7 @@
     ?>
     <header>
         <h1 class="title">Draftosaurus</h1>
-        <a class="boton" href="../HTML Y CSS/index.html">Volver</a>
+        <a class="boton" href="../../Presentacion/HTML/index.html">Volver</a>
     </header>
     <div class="form-container">
     <form action="<?=$_SERVER['PHP_SELF']?>" method="post">

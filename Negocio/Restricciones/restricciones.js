@@ -54,22 +54,25 @@ let ultimoBosqueColocado = 0;
 
 function activarDragDropSimilitud() {
     const dinos = document.querySelectorAll(".Dinos_ALM img");
-
     dinos.forEach(dino => {
         dino.setAttribute("draggable", "true");
         dino.addEventListener("dragstart", () => {
+            if (!window.puedeColocar) return;
             window.dinoArrastrado = dino;
         });
     });
 
     ZonaSimilitud.forEach(zona => {
         zona.addEventListener("dragover", e => {
-            if (!window.dinoArrastrado) return;
+            if (!window.puedeColocar || !window.dinoArrastrado) return;
             const tipoDino = window.dinoArrastrado.dataset.tipo;
             const zonaNum = obtenerNumeroZona(zona);
-            const esZonaValida = zonaNum === ultimoBosqueColocado + 1;
 
-            if (esZonaValida && (!tipoRecinto || tipoDino === tipoRecinto) && zona.children.length === 0) {
+            if (puedeSoltarPorDado(zona) &&
+                ((zonaNum === 1 && ultimoBosqueColocado === 0) ||
+                zonaNum === ultimoBosqueColocado + 1) &&
+                (!tipoRecinto || tipoDino === tipoRecinto) &&
+                zona.children.length === 0) {
                 e.preventDefault();
                 e.dataTransfer.dropEffect = "move";
             } else {
@@ -79,14 +82,17 @@ function activarDragDropSimilitud() {
 
         zona.addEventListener("drop", e => {
             e.preventDefault();
-            if (!window.dinoArrastrado) return;
+            if (!window.puedeColocar || !window.dinoArrastrado) return;
 
             const dino = window.dinoArrastrado;
             const tipoDino = dino.dataset.tipo;
             const zonaNum = obtenerNumeroZona(zona);
-            const esZonaValida = zonaNum === ultimoBosqueColocado + 1;
 
-            if (!esZonaValida || (tipoRecinto && tipoDino !== tipoRecinto) || zona.children.length > 0) {
+            if (!puedeSoltarPorDado(zona) ||
+                ((zonaNum !== 1 || ultimoBosqueColocado !== 0) &&
+                zonaNum !== ultimoBosqueColocado + 1) ||
+                (tipoRecinto && tipoDino !== tipoRecinto) ||
+                zona.children.length > 0) {
                 window.dinoArrastrado = null;
                 return;
             }
@@ -97,16 +103,15 @@ function activarDragDropSimilitud() {
             dino.style.width = "90%";
             dino.style.height = "auto";
             dino.style.position = "absolute";
-
             const rect = zona.getBoundingClientRect();
-            const x = rect.width / 2 - dino.offsetWidth / 2;
-            const y = rect.height / 2 - dino.offsetHeight / 2;
-            dino.style.left = x + "px";
-            dino.style.top = y + "px";
+            dino.style.left = rect.width / 2 - dino.offsetWidth / 2 + "px";
+            dino.style.top = rect.height / 2 - dino.offsetHeight / 2 + "px";
 
             zona.appendChild(dino);
             sumarPuntos(zona.id, zona);
             window.dinoArrastrado = null;
+            window.puedeColocar = false;
+            verificarFinDePartida();
         });
     });
 }
@@ -118,22 +123,29 @@ let ultimaPraderaColocada = 8;
 
 function activarDragDropPradera() {
     const dinos = document.querySelectorAll(".Dinos_ALM img");
-
     dinos.forEach(dino => {
         dino.setAttribute("draggable", "true");
         dino.addEventListener("dragstart", () => {
+            if (!window.puedeColocar) return;
             window.dinoArrastrado = dino;
         });
     });
 
     ZonaPradera.forEach(zona => {
         zona.addEventListener("dragover", e => {
-            if (!window.dinoArrastrado) return;
+            if (!window.puedeColocar || !window.dinoArrastrado) return;
             const tipoDino = window.dinoArrastrado.dataset.tipo;
             const zonaNum = obtenerNumeroZona(zona);
-            const esZonaValida = zonaNum === ultimaPraderaColocada + 1;
 
-            if (esZonaValida && zona.children.length === 0 && !tiposColocados.includes(tipoDino)) {
+            const dinosEnZonas = Array.from(ZonaPradera)
+                .flatMap(z => Array.from(z.children))
+                .map(d => d.dataset.tipo);
+
+            if (puedeSoltarPorDado(zona) &&
+                ((zonaNum === 9 && ultimaPraderaColocada === 8) ||
+                zonaNum === ultimaPraderaColocada + 1) &&
+                !dinosEnZonas.includes(tipoDino) &&
+                zona.children.length === 0) {
                 e.preventDefault();
                 e.dataTransfer.dropEffect = "move";
             } else {
@@ -143,14 +155,21 @@ function activarDragDropPradera() {
 
         zona.addEventListener("drop", e => {
             e.preventDefault();
-            if (!window.dinoArrastrado) return;
+            if (!window.puedeColocar || !window.dinoArrastrado) return;
 
             const dino = window.dinoArrastrado;
             const tipoDino = dino.dataset.tipo;
             const zonaNum = obtenerNumeroZona(zona);
-            const esZonaValida = zonaNum === ultimaPraderaColocada + 1;
 
-            if (!esZonaValida || zona.children.length > 0 || tiposColocados.includes(tipoDino)) {
+            const dinosEnZonas = Array.from(ZonaPradera)
+                .flatMap(z => Array.from(z.children))
+                .map(d => d.dataset.tipo);
+
+            if (!puedeSoltarPorDado(zona) ||
+                ((zonaNum !== 9 || ultimaPraderaColocada !== 8) &&
+                zonaNum !== ultimaPraderaColocada + 1) ||
+                dinosEnZonas.includes(tipoDino) ||
+                zona.children.length > 0) {
                 window.dinoArrastrado = null;
                 return;
             }
@@ -161,16 +180,15 @@ function activarDragDropPradera() {
             dino.style.width = "90%";
             dino.style.height = "auto";
             dino.style.position = "absolute";
-
             const rect = zona.getBoundingClientRect();
-            const x = rect.width / 2 - dino.offsetWidth / 2;
-            const y = rect.height / 2 - dino.offsetHeight / 2;
-            dino.style.left = x + "px";
-            dino.style.top = y + "px";
+            dino.style.left = rect.width / 2 - dino.offsetWidth / 2 + "px";
+            dino.style.top = rect.height / 2 - dino.offsetHeight / 2 + "px";
 
             zona.appendChild(dino);
             sumarPuntos(zona.id, zona);
             window.dinoArrastrado = null;
+            window.puedeColocar = false;
+            verificarFinDePartida();
         });
     });
 }
@@ -181,29 +199,29 @@ let reyOcupado = false;
 
 function activarDragDropRey() {
     if (!ZonaRey) return;
-
     const dinos = document.querySelectorAll(".Dinos_ALM img");
-
     dinos.forEach(dino => {
         dino.setAttribute("draggable", "true");
         dino.addEventListener("dragstart", () => {
+            if (!window.puedeColocar) return;
             window.dinoArrastrado = dino;
         });
     });
 
     ZonaRey.addEventListener("dragover", e => {
-        if (!window.dinoArrastrado) return;
+        if (!window.puedeColocar || !window.dinoArrastrado) return;
         if (!reyOcupado) {
             e.preventDefault();
             e.dataTransfer.dropEffect = "move";
         } else {
+            e.preventDefault();
             e.dataTransfer.dropEffect = "none";
         }
     });
 
     ZonaRey.addEventListener("drop", e => {
         e.preventDefault();
-        if (!window.dinoArrastrado || reyOcupado) {
+        if (!window.puedeColocar || !window.dinoArrastrado || reyOcupado) {
             window.dinoArrastrado = null;
             return;
         }
@@ -217,43 +235,45 @@ function activarDragDropRey() {
         const y = rect.height / 2 - dino.offsetHeight / 2;
         dino.style.left = x + "px";
         dino.style.top = y + "px";
+
         ZonaRey.appendChild(dino);
         reyOcupado = true;
         sumarPuntos(ZonaRey.id, ZonaRey);
         window.dinoArrastrado = null;
+        window.puedeColocar = false;
+        verificarFinDePartida();
     });
 }
 
-// ISLA SOLITARIA
 const ZonaSoledad = document.querySelectorAll(".Zona16");
 let tiposUsados = [];
 
 function activarDragDropSoledad() {
     const dinos = document.querySelectorAll(".Dinos_ALM img");
-
     dinos.forEach(dino => {
         dino.setAttribute("draggable", "true");
         dino.addEventListener("dragstart", () => {
+            if (!window.puedeColocar) return;
             window.dinoArrastrado = dino;
         });
     });
-
+// ISLA SOLITARIA
     ZonaSoledad.forEach(zona => {
         zona.addEventListener("dragover", e => {
-            if (!window.dinoArrastrado) return;
+            if (!window.puedeColocar || !window.dinoArrastrado) return;
             const tipoDino = window.dinoArrastrado.dataset.tipo;
             if (zona.children.length === 0 && !tiposUsados.includes(tipoDino)) {
                 e.preventDefault();
                 e.dataTransfer.dropEffect = "move";
             } else {
+                e.preventDefault();
                 e.dataTransfer.dropEffect = "none";
             }
         });
 
         zona.addEventListener("drop", e => {
             e.preventDefault();
-            if (!window.dinoArrastrado) return;
-
+            if (!window.puedeColocar || !window.dinoArrastrado) return;
             const dino = window.dinoArrastrado;
             const tipoDino = dino.dataset.tipo;
 
@@ -267,7 +287,6 @@ function activarDragDropSoledad() {
             dino.style.width = "90%";
             dino.style.height = "auto";
             dino.style.position = "absolute";
-
             const rect = zona.getBoundingClientRect();
             const x = rect.width / 2 - dino.offsetWidth / 2;
             const y = rect.height / 2 - dino.offsetHeight / 2;
@@ -277,10 +296,11 @@ function activarDragDropSoledad() {
             zona.appendChild(dino);
             sumarPuntos(zona.id, zona);
             window.dinoArrastrado = null;
+            window.puedeColocar = false;
+            verificarFinDePartida();
         });
     });
 }
-
 // PRADERA DEL AMOR
 const ZonaLago = document.querySelectorAll(".Zona15");
 let tipoLago = null;
@@ -288,30 +308,30 @@ let cantidadLago = 0;
 
 function activarDragDropLago() {
     const dinos = document.querySelectorAll(".Dinos_ALM img");
-
     dinos.forEach(dino => {
         dino.setAttribute("draggable", "true");
         dino.addEventListener("dragstart", () => {
+            if (!window.puedeColocar) return;
             window.dinoArrastrado = dino;
         });
     });
 
     ZonaLago.forEach(zona => {
         zona.addEventListener("dragover", e => {
-            if (!window.dinoArrastrado) return;
+            if (!window.puedeColocar || !window.dinoArrastrado) return;
             const tipoDino = window.dinoArrastrado.dataset.tipo;
             if ((cantidadLago < 2) && (!tipoLago || tipoDino === tipoLago)) {
                 e.preventDefault();
                 e.dataTransfer.dropEffect = "move";
             } else {
+                e.preventDefault();
                 e.dataTransfer.dropEffect = "none";
             }
         });
 
         zona.addEventListener("drop", e => {
             e.preventDefault();
-            if (!window.dinoArrastrado) return;
-
+            if (!window.puedeColocar || !window.dinoArrastrado) return;
             const dino = window.dinoArrastrado;
             const tipoDino = dino.dataset.tipo;
 
@@ -326,7 +346,6 @@ function activarDragDropLago() {
             dino.style.width = "90%";
             dino.style.height = "auto";
             dino.style.position = "absolute";
-
             const rect = zona.getBoundingClientRect();
             const x = rect.width / 2 - dino.offsetWidth / 2;
             const y = rect.height / 2 - dino.offsetHeight / 2;
@@ -336,27 +355,28 @@ function activarDragDropLago() {
             if (dino.parentNode !== zona) zona.appendChild(dino);
             sumarPuntos(zona.id, zona);
             window.dinoArrastrado = null;
+            window.puedeColocar = false;
+            verificarFinDePartida();
         });
     });
 }
-
 // TRÍO FRONDOSO
 const ZonaTrio = document.querySelectorAll(".Zona8");
 let dinosTrio = [];
 
 function activarDragDropTrio() {
     const dinos = document.querySelectorAll(".Dinos_ALM img");
-
     dinos.forEach(dino => {
         dino.setAttribute("draggable", "true");
         dino.addEventListener("dragstart", () => {
+            if (!window.puedeColocar) return;
             window.dinoArrastrado = dino;
         });
     });
 
     ZonaTrio.forEach(zona => {
         zona.addEventListener("dragover", e => {
-            if (!window.dinoArrastrado) return;
+            if (!window.puedeColocar || !window.dinoArrastrado) return;
             if (dinosTrio.length < 3) {
                 e.preventDefault();
                 e.dataTransfer.dropEffect = "move";
@@ -367,15 +387,13 @@ function activarDragDropTrio() {
 
         zona.addEventListener("drop", e => {
             e.preventDefault();
-            if (!window.dinoArrastrado) return;
-
+            if (!window.puedeColocar || !window.dinoArrastrado) return;
             const dino = window.dinoArrastrado;
             dinosTrio.push(dino.dataset.tipo);
 
             dino.style.width = "40%";
             dino.style.height = "auto";
             dino.style.position = "absolute";
-
             const offsetX = dinosTrio.length * (dino.offsetWidth + 5) - dino.offsetWidth;
             const rect = zona.getBoundingClientRect();
             const x = offsetX;
@@ -386,6 +404,8 @@ function activarDragDropTrio() {
             zona.appendChild(dino);
             sumarPuntos(zona.id, zona);
             window.dinoArrastrado = null;
+            window.puedeColocar = false;
+            verificarFinDePartida();
         });
     });
 }
