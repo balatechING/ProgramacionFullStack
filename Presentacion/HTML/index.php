@@ -17,7 +17,7 @@ session_start();
     <h1 class="titulo">DRAFTOSAURUS</h1>
     <div class="header-botones d-flex gap-2 position-absolute top-0 end-0">
         <?php if(isset($_SESSION['nombre_usuario'])): ?>
-            <span>Hola, <?= htmlspecialchars($_SESSION['nombre_usuario']) ?></span>
+            <span class="saludo">Hola, <?= htmlspecialchars($_SESSION['nombre_usuario']) ?></span>
             <a class="botones" href="../../Negocio/CerrarSesion/cerrarsesion.php">Cerrar Sesión</a>
         <?php else: ?>
             <a class="botones" href="../../Negocio/Registro/registro.php">REGISTRO</a>

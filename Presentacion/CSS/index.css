@@ -27,6 +27,20 @@ body {
     display: inline-block; 
 }
 
+.saludo {
+    background-color: orange;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 20px 40px;
+    display: inline-block;
+    color: #805315;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #1a1105;
+    transition: background 0.3s, color 0.3s;
+}
+
 .header-botones {
     display: flex;
     margin-left: 1px;
