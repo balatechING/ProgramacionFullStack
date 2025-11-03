@@ -1,7 +1,7 @@
 <?php
 $servidor = "localhost";
 $contrasenia = "";
-$baseDeDatos = "draftosaurus";
+$baseDeDatos = "bd_balatech";
 $usuario = "root";
 $conexion = new mysqli($servidor, $usuario, $contrasenia, $baseDeDatos);
 if($conexion->connect_error){

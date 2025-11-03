@@ -1,5 +1,5 @@
 body {
-    background-image: url(../../Recursos/FondoJuego.png);
+    background-image: url(../../Recursos/FondoJuego2.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -13,7 +13,7 @@ body {
 
 @font-face {
     font-family: 'JurassicPark';
-    src: url('/Presentacion/CSS/Jurassic_Park.ttf') format('truetype');
+    src: url('../../Presentacion/CSS/Jurassic_Park.ttf') format('truetype');
 }
 
 .botones2 {

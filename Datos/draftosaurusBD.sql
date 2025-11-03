@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-09-2025 a las 10:56:27
+-- Tiempo de generación: 15-09-2025
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -11,57 +11,43 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de datos: `draftosaurus`
---
+-- Base de datos: `bd_balatech`
 
 -- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `historial`
---
-
+-- --------------------------------------------------------
 CREATE TABLE `historial` (
-  `id_historial` int(11) NOT NULL,
-  `fecha` datetime DEFAULT NULL,
-  `id_ganador` int(11) DEFAULT NULL
+  `id_historial` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id_ganador` int(11) NOT NULL,
+  `puntos` int(50) NOT NULL,
+  PRIMARY KEY (`id_historial`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `partidas`
---
-
+-- --------------------------------------------------------
 CREATE TABLE `partidas` (
-  `id_partida` int(11) NOT NULL,
+  `id_partida` int(11) NOT NULL AUTO_INCREMENT,
   `fecha` datetime DEFAULT NULL,
-  `estado` varchar(50) DEFAULT 'finalizada'
+  `estado` varchar(50) DEFAULT 'finalizada',
+  PRIMARY KEY (`id_partida`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `usuarios`
---
-
+-- --------------------------------------------------------
 CREATE TABLE `usuarios` (
-  `id_usuario` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `correo_usuario` varchar(100) DEFAULT NULL,
   `nombre_usuario` varchar(50) DEFAULT NULL,
-  `contrasenia` varchar(100) NOT NULL
+  `contrasenia` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
+-- --------------------------------------------------------
 -- Volcado de datos para la tabla `usuarios`
---
-
+-- --------------------------------------------------------
 INSERT INTO `usuarios` (`id_usuario`, `correo_usuario`, `nombre_usuario`, `contrasenia`) VALUES
 (3, 'lu.gonzafer@gmail.com', 'asdawd', ''),
 (4, 'matipor33@gmail.com', 'pepito', ''),
@@ -76,62 +62,15 @@ INSERT INTO `usuarios` (`id_usuario`, `correo_usuario`, `nombre_usuario`, `contr
 (17, 'lu.gonzafer@gmail.com', 'asdawd', '$2y$10$0cbvCWMNqCyPwKDS4uxV6O7Py.wJqMvz9rDVfW4F6XLBPXVOk2BAu'),
 (18, 'cccccc', 'asdawd', '$2y$10$WonnftgrnbWY6Wo3FslyGOjlvsFHq/IOoRxR043sgpa2GyFeSzSJK');
 
---
+-- --------------------------------------------------------
 -- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `historial`
---
+-- --------------------------------------------------------
 ALTER TABLE `historial`
-  ADD PRIMARY KEY (`id_historial`),
   ADD KEY `id_ganador` (`id_ganador`);
 
---
--- Indices de la tabla `partidas`
---
-ALTER TABLE `partidas`
-  ADD PRIMARY KEY (`id_partida`);
-
---
--- Indices de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `historial`
---
-ALTER TABLE `historial`
-  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `partidas`
---
-ALTER TABLE `partidas`
-  MODIFY `id_partida` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `usuarios`
---
-ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
+-- --------------------------------------------------------
 -- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `historial`
---
+-- --------------------------------------------------------
 ALTER TABLE `historial`
   ADD CONSTRAINT `historial_ibfk_1` FOREIGN KEY (`id_ganador`) REFERENCES `usuarios` (`id_usuario`);
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,12 +1,14 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: "Bangers", system-ui;
-    background-image: url("../../Recursos/FondoInicio.png");
+body {
+    background-image: url(../../Recursos/FondoInicio.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: "Bangers", system-ui;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 body {
@@ -76,7 +78,7 @@ footer {
     border: 2px solid black;
     padding: 10px 20px;
     letter-spacing: 1.5px;
-    margin-top: auto;
+    margin-top: 39.6%;
 }
 
 @media (max-width: 576px) {

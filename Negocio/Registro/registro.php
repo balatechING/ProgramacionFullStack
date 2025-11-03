@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php
+    
     if(isset($_POST["Enviar"])){
         if(empty($_POST['correo']) || empty($_POST['contrasenia'])){
             $mensaje = "Los campos estan vacios";
@@ -18,7 +19,7 @@
         $contrasenia = $_POST['contrasenia'];
         $hashed_password = password_hash($contrasenia, PASSWORD_DEFAULT);
 
-        include("conexionBD.php");
+        include('../../Datos/conexionBD.php'); 
         $sql = 'INSERT INTO usuarios (nombre_usuario, correo_usuario, contrasenia) values ("'.$nombre.'", "'.$correo.'", "'.$hashed_password.'")';
         
         $resultado = mysqli_query($conexion, $sql);

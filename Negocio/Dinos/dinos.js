@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 0; i < cantidad; i++) {
             const randomIndex = Math.floor(Math.random() * tipos.length);
             const tipo = tipos[randomIndex];
-            const src = `/Recursos/${tipo}.png`;
+            const src = "../../Recursos/" + tipo + ".png";
 
             const img = document.createElement("img");
             img.src = src;

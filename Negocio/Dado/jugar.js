@@ -109,14 +109,31 @@ document.addEventListener("drop", (e) => {
     verificarFinDePartida();
 });
 
+function finalizarPartida() {
+    fetch("../../Negocio/GuardarPartida/Partida.php", {
+        method: "POST",
+        credentials: "include"
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            alert("Partida guardada correctamente");
+        } else {
+            console.error(data.error);
+            alert("Error al guardar la partida");
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Error de conexión al guardar la partida");
+    });
+}
+
 function verificarFinDePartida() {
     const dinosEnAlmacen = document.querySelectorAll(".Dinos_ALM img").length;
     if (dinosEnAlmacen === 0) {
-        if (typeof finalizarPartida === "function") {
-            finalizarPartida(1);
-        } else {
-            alert("¡Partida finalizada!");
-        }
+        finalizarPartida();
     }
 }
+
 window.verificarFinDePartida = verificarFinDePartida;
