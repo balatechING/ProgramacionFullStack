@@ -110,16 +110,22 @@ document.addEventListener("drop", (e) => {
 });
 
 function finalizarPartida() {
+
     fetch("../../Negocio/GuardarPartida/Partida.php", {
         method: "POST",
-        credentials: "include"
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ puntos: puntajeTotal })
     })
     .then(res => res.json())
     .then(data => {
         if (data.success) {
             alert("Partida guardada correctamente");
+            window.location.href = "../Presentacion/HTML/historial.php";
         } else {
-            console.error(data.error);
+            console.error("Error:", data.error);
             alert("Error al guardar la partida");
         }
     })

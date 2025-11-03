@@ -33,7 +33,7 @@
     ?>
     <header>
         <h1 class="title">Draftosaurus</h1>
-        <a class="boton" href="../../Presentacion/HTML/index.html">Volver</a>
+        <a class="boton" href="../../Presentacion/HTML/index.php">Volver</a>
     </header>
     <div class="form-container">
     <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
