@@ -46,6 +46,27 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
+-- Estructura de tabla para la tabla `jugador`
+-- --------------------------------------------------------
+CREATE TABLE `jugador` (
+  `id_usuario` int(11) NOT NULL,
+  `partidas_jugadas` int(11) NOT NULL DEFAULT 0,
+  `puntos_totales` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id_usuario`),
+  CONSTRAINT `jugador_fk_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios`(`id_usuario`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+-- Estructura de tabla para la tabla `dinosaurios`
+-- --------------------------------------------------------
+CREATE TABLE `dinosaurios` (
+  `id_dino` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_dino` varchar(50) NOT NULL,
+  `dino_cantidad` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id_dino`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
 -- Volcado de datos para la tabla `usuarios`
 -- --------------------------------------------------------
 INSERT INTO `usuarios` (`id_usuario`, `correo_usuario`, `nombre_usuario`, `contrasenia`) VALUES
